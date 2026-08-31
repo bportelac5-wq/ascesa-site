@@ -1,686 +1,1705 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ascesa Administração Judicial | São Paulo</title>
+<meta name="description" content="Escritório especializado em administração judicial, recuperação judicial e falências. Gabriel Battagin Martins — OAB/SP 174.874.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+/* =============================================
+   RESET & BASE
+============================================= */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', sans-serif;
+  background: #050a06;
+  color: #e8ede9;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+ul { list-style: none; }
 
-  <title>Ascesa Administração Judicial | Recuperação Judicial e Falências</title>
-  <meta name="description" content="Escritório especializado em administração judicial, recuperação judicial e falências. Atuação técnica, transparência processual e compromisso com o Judiciário.">
+/* =============================================
+   VARIÁVEIS
+============================================= */
+:root {
+  --verde:      #1a3d2b;
+  --verde-mid:  #245c3e;
+  --verde-vivo: #2d7a4f;
+  --acento:     #c8f5d8;
+  --branco:     #f0f5f1;
+  --cinza:      #8a9e8e;
+  --borda:      rgba(200, 245, 216, 0.1);
+  --font-title: 'Syne', sans-serif;
+  --font-body:  'Inter', sans-serif;
+}
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Ascesa Administração Judicial">
-  <meta property="og:description" content="Escritório especializado em administração judicial, recuperação judicial e falências.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://ascesa.adv.br">
+/* =============================================
+   UTILITÁRIOS
+============================================= */
+.container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
 
-  <!-- Canonical -->
-  <link rel="canonical" href="https://ascesa.adv.br">
+/* =============================================
+   ANIMAÇÕES
+============================================= */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(32px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes lineGrow {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+@keyframes counterUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-12px); }
+}
+@keyframes pulse {
+  0%, 100% { opacity: 0.4; }
+  50%       { opacity: 0.8; }
+}
+@keyframes gradientShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
 
-  <!-- Fontes -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
 
-  <!-- CSS crítico inline — header + hero acima do fold -->
-  <style>
-    :root{--color-primary:#1A3D2B;--color-white:#ffffff;--font-display:'Cormorant Garamond','Georgia',serif;--font-body:'Inter','Helvetica Neue',sans-serif;}
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-    body{font-family:var(--font-body);background:#F7F8F6;color:#0F1410;-webkit-font-smoothing:antialiased;}
-    .site-header{position:fixed;top:0;left:0;right:0;z-index:100;background-color:var(--color-primary);}
-    .header-inner{display:flex;align-items:center;justify-content:space-between;height:72px;max-width:1240px;margin-inline:auto;padding-inline:1.5rem;gap:2rem;}
-    .hero{background-color:var(--color-primary);min-height:calc(100vh - 72px);display:flex;align-items:center;}
-  </style>
+@media (prefers-reduced-motion: reduce) {
+  .reveal, * { transition: none !important; animation: none !important; }
+  .reveal { opacity: 1; transform: none; }
+}
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="css/tokens.css">
-  <link rel="stylesheet" href="css/base.css">
-  <link rel="stylesheet" href="css/layout.css">
-  <link rel="stylesheet" href="css/components.css">
+/* =============================================
+   HEADER
+============================================= */
+.header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 0 2rem;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background 0.4s ease, backdrop-filter 0.4s ease;
+}
+.header.scrolled {
+  background: rgba(5, 10, 6, 0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--borda);
+}
 
-  <!-- Schema Markup -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "LegalService",
-    "name": "Ascesa Administração Judicial",
-    "description": "Escritório especializado em administração judicial, recuperação judicial e falências",
-    "url": "https://ascesa.adv.br",
-    "serviceType": ["Administração Judicial", "Recuperação Judicial", "Falências"]
-  }
-  </script>
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.logo img { height: 36px; filter: brightness(0) invert(1); }
+.logo-text {
+  font-family: var(--font-title);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--branco);
+  letter-spacing: 0.05em;
+}
+
+.nav { display: flex; align-items: center; gap: 2.5rem; }
+.nav a {
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--cinza);
+  transition: color 0.2s;
+}
+.nav a:hover { color: var(--branco); }
+
+.nav-cta {
+  padding: 0.6rem 1.4rem;
+  border: 1px solid var(--acento);
+  color: var(--acento) !important;
+  font-size: 0.75rem !important;
+  letter-spacing: 0.1em !important;
+  transition: background 0.2s, color 0.2s !important;
+}
+.nav-cta:hover {
+  background: var(--acento) !important;
+  color: var(--verde) !important;
+}
+
+.menu-btn {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+}
+.menu-btn span {
+  display: block;
+  width: 24px;
+  height: 1.5px;
+  background: var(--branco);
+  transition: transform 0.3s, opacity 0.3s;
+}
+.menu-btn.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.menu-btn.open span:nth-child(2) { opacity: 0; }
+.menu-btn.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+.mobile-nav {
+  position: fixed;
+  inset: 72px 0 0 0;
+  background: #050a06;
+  z-index: 99;
+  display: flex;
+  flex-direction: column;
+  padding: 3rem 2rem;
+  gap: 2rem;
+  transform: translateX(100%);
+  transition: transform 0.35s ease;
+}
+.mobile-nav.open { transform: translateX(0); }
+.mobile-nav a {
+  font-family: var(--font-title);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--branco);
+  transition: color 0.2s;
+}
+.mobile-nav a:hover { color: var(--acento); }
+
+/* =============================================
+   HERO
+============================================= */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding-top: 72px;
+}
+
+/* Fundo com gradiente animado */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 80% 60% at 60% 40%, #1a3d2b 0%, #050a06 70%);
+}
+
+/* Grid de linhas decorativas */
+.hero-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(200,245,216,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(200,245,216,0.03) 1px, transparent 1px);
+  background-size: 80px 80px;
+}
+
+/* Orbe flutuante */
+.hero-orb {
+  position: absolute;
+  right: -100px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(45,122,79,0.15) 0%, transparent 70%);
+  animation: float 8s ease-in-out infinite;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 4rem;
+  align-items: center;
+  padding: 5rem 0;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 1rem;
+  border: 1px solid var(--borda);
+  border-radius: 100px;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--acento);
+  margin-bottom: 2rem;
+  animation: fadeIn 0.6s ease 0.2s both;
+}
+.hero-badge::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--acento);
+  animation: pulse 2s ease infinite;
+}
+
+.hero-title {
+  font-family: var(--font-title);
+  font-size: clamp(3rem, 6vw, 5.5rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--branco);
+  margin-bottom: 1.5rem;
+  animation: fadeUp 0.8s ease 0.35s both;
+}
+.hero-title .linha-verde {
+  display: block;
+  color: var(--acento);
+}
+
+.hero-sub {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--cinza);
+  max-width: 48ch;
+  margin-bottom: 2.5rem;
+  animation: fadeUp 0.7s ease 0.55s both;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  animation: fadeUp 0.7s ease 0.7s both;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.9rem 2rem;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: none;
+  transition: all 0.25s ease;
+}
+.btn:focus-visible { outline: 2px solid var(--acento); outline-offset: 3px; }
+
+.btn-primary {
+  background: var(--acento);
+  color: var(--verde);
+  border-radius: 2px;
+}
+.btn-primary:hover {
+  background: #fff;
+  transform: translateY(-1px);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--branco);
+  border: 1px solid var(--borda);
+  border-radius: 2px;
+}
+.btn-ghost:hover {
+  border-color: rgba(200,245,216,0.4);
+  background: var(--borda);
+}
+
+/* Card de stats no hero */
+.hero-stats {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--borda);
+  border-radius: 4px;
+  padding: 2rem;
+  backdrop-filter: blur(8px);
+  animation: fadeUp 0.8s ease 0.5s both;
+}
+
+.hero-stats-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--cinza);
+  margin-bottom: 1.5rem;
+}
+
+.stat-row {
+  padding: 1.25rem 0;
+  border-top: 1px solid var(--borda);
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+.stat-row:first-of-type { border-top: none; padding-top: 0; }
+
+.stat-num {
+  font-family: var(--font-title);
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--branco);
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+.stat-desc {
+  font-size: 0.8rem;
+  color: var(--cinza);
+}
+
+/* =============================================
+   CREDIBILIDADE BAR
+============================================= */
+.cred-bar {
+  background: var(--verde);
+  border-top: 1px solid rgba(200,245,216,0.1);
+  border-bottom: 1px solid rgba(200,245,216,0.1);
+  padding: 1.5rem 0;
+  overflow: hidden;
+}
+
+.cred-list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.cred-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.75rem 2.5rem;
+  border-right: 1px solid rgba(200,245,216,0.15);
+  text-align: center;
+  gap: 0.25rem;
+}
+.cred-item:last-child { border-right: none; }
+
+.cred-num {
+  font-family: var(--font-title);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--acento);
+  line-height: 1;
+}
+.cred-label {
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(200,245,216,0.55);
+}
+
+/* =============================================
+   SOBRE
+============================================= */
+.sobre {
+  padding: 8rem 0;
+  background: #050a06;
+}
+
+.sobre-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+  align-items: center;
+}
+
+.sobre-tag {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--acento);
+  margin-bottom: 1.25rem;
+}
+
+.sobre-title {
+  font-family: var(--font-title);
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--branco);
+  margin-bottom: 2rem;
+}
+
+.sobre-text {
+  font-size: 1rem;
+  line-height: 1.85;
+  color: var(--cinza);
+  max-width: 50ch;
+}
+.sobre-text + .sobre-text { margin-top: 1rem; }
+
+/* Pilares */
+.pilares {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.pilar {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  gap: 1.25rem;
+  align-items: start;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid var(--borda);
+  transition: background 0.25s;
+}
+.pilar:first-child { border-top: 1px solid var(--borda); }
+
+.pilar-num {
+  font-family: var(--font-title);
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--acento);
+  letter-spacing: 0.08em;
+  padding-top: 0.3rem;
+}
+
+.pilar-titulo {
+  font-family: var(--font-title);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--branco);
+  margin-bottom: 0.35rem;
+}
+
+.pilar-desc {
+  font-size: 0.85rem;
+  line-height: 1.65;
+  color: var(--cinza);
+  max-width: 100%;
+}
+
+/* =============================================
+   SERVIÇOS
+============================================= */
+.servicos {
+  padding: 8rem 0;
+  background: #070d08;
+}
+
+.section-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 4rem;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.section-tag {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--acento);
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+.section-title {
+  font-family: var(--font-title);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--branco);
+}
+
+.servicos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border: 1px solid var(--borda);
+}
+
+.servico-item {
+  padding: 2.5rem;
+  border-right: 1px solid var(--borda);
+  border-bottom: 1px solid var(--borda);
+  position: relative;
+  overflow: hidden;
+  transition: background 0.3s;
+  cursor: default;
+}
+.servico-item:nth-child(3n) { border-right: none; }
+.servico-item:nth-child(n+4) { border-bottom: none; }
+
+.servico-item::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(45,122,79,0.08) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.servico-item:hover { background: rgba(200,245,216,0.03); }
+.servico-item:hover::after { opacity: 1; }
+
+.servico-num {
+  font-family: var(--font-title);
+  font-size: 3rem;
+  font-weight: 800;
+  color: rgba(200,245,216,0.08);
+  line-height: 1;
+  margin-bottom: 1.5rem;
+  transition: color 0.3s;
+}
+.servico-item:hover .servico-num { color: rgba(200,245,216,0.15); }
+
+.servico-titulo {
+  font-family: var(--font-title);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--branco);
+  margin-bottom: 0.75rem;
+}
+
+.servico-desc {
+  font-size: 0.85rem;
+  line-height: 1.7;
+  color: var(--cinza);
+}
+
+/* =============================================
+   SÓCIO
+============================================= */
+.socio-section {
+  padding: 8rem 0;
+  background: #050a06;
+}
+
+.socio-inner {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: 6rem;
+  align-items: start;
+}
+
+/* Placeholder foto */
+.socio-foto-wrap {
+  position: relative;
+}
+.socio-foto-bg {
+  position: absolute;
+  inset: -20px;
+  background: radial-gradient(circle at center, rgba(45,122,79,0.2) 0%, transparent 70%);
+  border-radius: 50%;
+}
+.socio-foto {
+  width: 100%;
+  aspect-ratio: 3/4;
+  background: linear-gradient(145deg, #1a3d2b 0%, #0d2018 100%);
+  border: 1px solid var(--borda);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+.socio-foto::after {
+  content: 'G';
+  font-family: var(--font-title);
+  font-size: 8rem;
+  font-weight: 800;
+  color: rgba(200,245,216,0.06);
+  position: absolute;
+}
+.socio-foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Info do sócio */
+.socio-tag {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--acento);
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.socio-nome {
+  font-family: var(--font-title);
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--branco);
+  margin-bottom: 0.5rem;
+}
+
+.socio-cargo {
+  font-size: 0.85rem;
+  color: var(--cinza);
+  margin-bottom: 2rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+}
+
+.socio-bio {
+  font-size: 0.95rem;
+  line-height: 1.85;
+  color: var(--cinza);
+  max-width: 56ch;
+  margin-bottom: 2.5rem;
+}
+
+/* Tabela de credenciais */
+.socio-creds {
+  border-top: 1px solid var(--borda);
+}
+.cred-row {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 1rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--borda);
+  align-items: baseline;
+}
+.cred-key {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--cinza);
+}
+.cred-val {
+  font-size: 0.88rem;
+  color: var(--branco);
+  line-height: 1.5;
+}
+.cred-val a { color: var(--acento); transition: opacity 0.2s; }
+.cred-val a:hover { opacity: 0.7; }
+
+/* =============================================
+   PROCESSOS
+============================================= */
+.processos {
+  padding: 8rem 0;
+  background: #070d08;
+}
+
+.processos-intro {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  margin-bottom: 3rem;
+  align-items: end;
+}
+
+.processos-desc {
+  font-size: 0.92rem;
+  line-height: 1.8;
+  color: var(--cinza);
+}
+
+.processo-list {
+  border-top: 1px solid var(--borda);
+}
+
+.processo-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid var(--borda);
+  gap: 2rem;
+  transition: padding-left 0.25s;
+}
+.processo-item:hover { padding-left: 0.75rem; }
+
+.processo-nome {
+  font-family: var(--font-title);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--branco);
+  margin-bottom: 0.25rem;
+}
+.processo-meta {
+  font-size: 0.8rem;
+  color: var(--cinza);
+}
+
+.badge {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.75rem;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+.badge-rj { background: rgba(45,122,79,0.25); color: var(--acento); border: 1px solid rgba(45,122,79,0.4); }
+.badge-fa { background: rgba(180,40,40,0.2); color: #f5a0a0; border: 1px solid rgba(180,40,40,0.4); }
+.badge-re { background: rgba(100,100,180,0.2); color: #b0b0f5; border: 1px solid rgba(100,100,180,0.4); }
+
+/* =============================================
+   PUBLICAÇÕES
+============================================= */
+.publicacoes {
+  padding: 8rem 0;
+  background: #050a06;
+}
+
+.pub-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  margin-top: 3rem;
+}
+
+.pub-item {
+  padding: 2.5rem;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid var(--borda);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  transition: background 0.3s;
+}
+.pub-item:hover { background: rgba(200,245,216,0.04); }
+
+.pub-data {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--acento);
+}
+.pub-titulo {
+  font-family: var(--font-title);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--branco);
+  line-height: 1.35;
+  flex: 1;
+}
+.pub-fonte {
+  font-size: 0.75rem;
+  color: var(--cinza);
+}
+
+/* =============================================
+   CTA BANNER
+============================================= */
+.cta-banner {
+  padding: 5rem 0;
+  background: var(--verde);
+  border-top: 1px solid rgba(200,245,216,0.15);
+  border-bottom: 1px solid rgba(200,245,216,0.15);
+  position: relative;
+  overflow: hidden;
+}
+.cta-banner::before {
+  content: '';
+  position: absolute;
+  right: -200px;
+  top: -200px;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(200,245,216,0.05) 0%, transparent 70%);
+}
+.cta-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
+}
+.cta-titulo {
+  font-family: var(--font-title);
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 800;
+  color: var(--branco);
+  max-width: 36ch;
+  line-height: 1.15;
+}
+
+/* =============================================
+   CONTATO
+============================================= */
+.contato {
+  padding: 8rem 0;
+  background: #050a06;
+}
+
+.contato-inner {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 6rem;
+  align-items: start;
+}
+
+.contato-info-titulo {
+  font-family: var(--font-title);
+  font-size: clamp(2rem, 3.5vw, 2.75rem);
+  font-weight: 800;
+  color: var(--branco);
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+}
+.contato-info-desc {
+  font-size: 0.92rem;
+  line-height: 1.8;
+  color: var(--cinza);
+  margin-bottom: 2.5rem;
+}
+
+.contato-dados {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+.dado-item { display: flex; flex-direction: column; gap: 0.2rem; }
+.dado-label {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--cinza);
+}
+.dado-val {
+  font-size: 0.9rem;
+  color: var(--branco);
+}
+
+/* Formulário */
+.form { display: flex; flex-direction: column; gap: 1.25rem; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+.form-group { display: flex; flex-direction: column; gap: 0.5rem; }
+.form-group label {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--cinza);
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--borda);
+  color: var(--branco);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  padding: 0.875rem 1rem;
+  border-radius: 2px;
+  transition: border-color 0.2s;
+  appearance: none;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: rgba(200,245,216,0.4);
+}
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: rgba(138,158,142,0.5);
+}
+.form-group textarea { min-height: 130px; resize: vertical; }
+.form-group select { cursor: pointer; }
+.form-group select option { background: #050a06; }
+.field-error { font-size: 0.72rem; color: #f5a0a0; display: none; }
+.field-error.show { display: block; }
+input.err, select.err, textarea.err { border-color: rgba(245,160,160,0.5); }
+.form-status {
+  padding: 1rem;
+  font-size: 0.85rem;
+  display: none;
+  border-radius: 2px;
+}
+.form-status.ok { display: block; background: rgba(45,122,79,0.15); color: var(--acento); border: 1px solid rgba(45,122,79,0.3); }
+.form-status.err { display: block; background: rgba(180,40,40,0.15); color: #f5a0a0; border: 1px solid rgba(180,40,40,0.3); }
+
+/* =============================================
+   FOOTER
+============================================= */
+.footer {
+  background: #030704;
+  border-top: 1px solid var(--borda);
+  padding: 4rem 0 2rem;
+}
+
+.footer-inner {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 4rem;
+  margin-bottom: 3rem;
+}
+
+.footer-brand-nome {
+  font-family: var(--font-title);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--branco);
+  margin-bottom: 0.75rem;
+  letter-spacing: 0.03em;
+}
+.footer-brand-desc {
+  font-size: 0.82rem;
+  line-height: 1.7;
+  color: var(--cinza);
+  max-width: 38ch;
+  margin-bottom: 1.75rem;
+}
+
+/* Dados para nomeação */
+.nomeacao-box {
+  border-top: 1px solid var(--borda);
+  padding-top: 1.5rem;
+}
+.nomeacao-label {
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(138,158,142,0.5);
+  margin-bottom: 0.6rem;
+  display: block;
+}
+.nomeacao-texto {
+  font-size: 0.75rem;
+  line-height: 1.65;
+  color: rgba(138,158,142,0.65);
+}
+
+.footer-col h4 {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(138,158,142,0.5);
+  margin-bottom: 1.25rem;
+}
+.footer-col ul { display: flex; flex-direction: column; gap: 0.7rem; }
+.footer-col a {
+  font-size: 0.85rem;
+  color: var(--cinza);
+  transition: color 0.2s;
+}
+.footer-col a:hover { color: var(--branco); }
+
+.footer-bottom {
+  border-top: 1px solid var(--borda);
+  padding-top: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 0.75rem;
+  color: rgba(138,158,142,0.5);
+}
+.footer-bottom a {
+  color: rgba(138,158,142,0.5);
+  transition: color 0.2s;
+}
+.footer-bottom a:hover { color: var(--cinza); }
+
+/* =============================================
+   WHATSAPP
+============================================= */
+.wa-btn {
+  position: fixed;
+  bottom: 1.75rem;
+  right: 1.75rem;
+  z-index: 90;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #25D366;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(37,211,102,0.3);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.wa-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(37,211,102,0.4);
+}
+.wa-btn svg { width: 26px; height: 26px; fill: white; }
+
+/* =============================================
+   RESPONSIVO
+============================================= */
+@media (max-width: 1024px) {
+  .hero-inner { grid-template-columns: 1fr; }
+  .hero-stats { display: none; }
+  .sobre-inner { grid-template-columns: 1fr; gap: 3rem; }
+  .servicos-grid { grid-template-columns: 1fr 1fr; }
+  .servico-item:nth-child(3n) { border-right: 1px solid var(--borda); }
+  .servico-item:nth-child(2n) { border-right: none; }
+  .servico-item:nth-child(n+5) { border-bottom: none; }
+  .socio-inner { grid-template-columns: 1fr; gap: 3rem; }
+  .socio-foto { aspect-ratio: 4/3; max-width: 400px; }
+  .processos-intro { grid-template-columns: 1fr; gap: 1.5rem; }
+  .pub-grid { grid-template-columns: 1fr 1fr; }
+  .pub-item:last-child { grid-column: span 2; }
+  .contato-inner { grid-template-columns: 1fr; gap: 3rem; }
+  .footer-inner { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+  .nav { display: none; }
+  .menu-btn { display: flex; }
+}
+
+@media (max-width: 640px) {
+  .servicos-grid { grid-template-columns: 1fr; }
+  .servico-item { border-right: none !important; border-bottom: 1px solid var(--borda) !important; }
+  .servico-item:last-child { border-bottom: none !important; }
+  .pub-grid { grid-template-columns: 1fr; }
+  .pub-item:last-child { grid-column: span 1; }
+  .form-row { grid-template-columns: 1fr; }
+  .footer-inner { grid-template-columns: 1fr; }
+  .cred-list { flex-direction: column; align-items: center; }
+  .cred-item { border-right: none; border-bottom: 1px solid rgba(200,245,216,0.1); width: 100%; }
+  .cred-item:last-child { border-bottom: none; }
+}
+</style>
 </head>
 <body>
 
-  <!-- ============================================
-       HEADER
-  ============================================= -->
-  <header class="site-header" role="banner">
-    <div class="header-inner container">
+<!-- HEADER -->
+<header class="header" id="header">
+  <a href="/" class="logo" aria-label="Ascesa — início">
+    <img src="logo.png" alt="Ascesa">
+    <span class="logo-text">ASCESA</span>
+  </a>
 
-      <!-- Logo -->
-      <a href="/" class="header-logo" aria-label="Ascesa — página inicial">
-        <img src="logo.png" alt="Ascesa Administração Judicial" height="40">
-      </a>
-
-      <!-- Nav desktop -->
-      <nav class="header-nav" aria-label="Navegação principal">
-        <a href="#sobre">Sobre</a>
-        <a href="#servicos">Serviços</a>
-        <a href="#equipe">Equipe</a>
-        <a href="#processos">Processos</a>
-        <a href="#publicacoes">Publicações</a>
-        <a href="#contato">Contato</a>
-      </nav>
-
-      <!-- CTA desktop -->
-      <a href="#contato" class="header-cta">Fale conosco</a>
-
-      <!-- Hamburger mobile -->
-      <button
-        class="menu-toggle"
-        aria-expanded="false"
-        aria-controls="mobile-drawer"
-        aria-label="Abrir menu"
-      >
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-    </div>
-  </header>
-
-  <!-- Drawer mobile -->
-  <nav
-    class="mobile-drawer"
-    id="mobile-drawer"
-    aria-label="Navegação mobile"
-  >
+  <nav class="nav" aria-label="Principal">
     <a href="#sobre">Sobre</a>
     <a href="#servicos">Serviços</a>
     <a href="#equipe">Equipe</a>
     <a href="#processos">Processos</a>
     <a href="#publicacoes">Publicações</a>
-    <a href="#contato">Contato</a>
+    <a href="#contato" class="nav-cta">Fale conosco</a>
   </nav>
 
-  <main>
+  <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-label="Abrir menu">
+    <span></span><span></span><span></span>
+  </button>
+</header>
 
-    <!-- ============================================
-         HERO
-    ============================================= -->
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="container">
-        <div class="hero-inner">
+<nav class="mobile-nav" id="mobileNav" aria-label="Mobile">
+  <a href="#sobre">Sobre</a>
+  <a href="#servicos">Serviços</a>
+  <a href="#equipe">Equipe</a>
+  <a href="#processos">Processos</a>
+  <a href="#publicacoes">Publicações</a>
+  <a href="#contato">Fale conosco</a>
+</nav>
 
-          <div class="hero-content">
-            <span class="hero-tag">Administração Judicial</span>
+<!-- HERO -->
+<section class="hero" id="inicio" aria-labelledby="hero-title">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-orb" aria-hidden="true"></div>
 
-            <h1 class="hero-title" id="hero-title">
-              Condução técnica<br>
-              <em>nos momentos</em><br>
-              mais críticos
-            </h1>
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-content">
+        <span class="hero-badge">Administração Judicial · São Paulo</span>
 
-            <p class="hero-desc">
-              Atuamos na administração judicial de recuperações e falências com rigor processual, transparência integral e compromisso com o Judiciário e todas as partes envolvidas.
-            </p>
+        <h1 class="hero-title" id="hero-title">
+          Rigor técnico<br>
+          <span class="linha-verde">nos processos</span><br>
+          que importam
+        </h1>
 
-            <div class="hero-actions">
-              <a href="#processos" class="btn btn-primary">Ver processos</a>
-              <a href="#contato" class="btn btn-outline">Fale conosco</a>
-            </div>
-          </div>
+        <p class="hero-sub">
+          Atuamos na administração judicial de recuperações e falências com exigência técnica, transparência integral e comprometimento permanente com o Judiciário.
+        </p>
 
-          <!-- Card de credibilidade -->
-          <div class="hero-card" aria-label="Números da Ascesa">
-            <p class="hero-card-title">Em andamento</p>
-
-            <div class="hero-stat">
-              <span class="hero-stat-num">+10 anos</span>
-              <span class="hero-stat-label">De experiência em insolvência</span>
-            </div>
-
-            <div class="hero-stat">
-              <span class="hero-stat-num">SP · RJ · PE</span>
-              <span class="hero-stat-label">Estados de atuação</span>
-            </div>
-
-            <div class="hero-stat">
-              <span class="hero-stat-num">Lei 11.101</span>
-              <span class="hero-stat-label">Especialização exclusiva</span>
-            </div>
-          </div>
-
+        <div class="hero-actions">
+          <a href="#processos" class="btn btn-primary">Ver processos</a>
+          <a href="#contato" class="btn btn-ghost">Fale conosco</a>
         </div>
       </div>
-    </section>
 
-    <!-- ============================================
-         BARRA DE CREDIBILIDADE
-    ============================================= -->
-    <div class="credibility-bar" aria-label="Indicadores">
-      <div class="container">
-        <ul class="credibility-list" role="list">
-          <li class="credibility-item">
-            <span class="credibility-num">Lei 11.101</span>
-            <span class="credibility-label">Especialização exclusiva</span>
-          </li>
-          <li class="credibility-item">
-            <span class="credibility-num">100%</span>
-            <span class="credibility-label">Transparência processual</span>
-          </li>
-          <li class="credibility-item">
-            <span class="credibility-num">Multi</span>
-            <span class="credibility-label">Equipe disciplinar</span>
-          </li>
-          <li class="credibility-item">
-            <span class="credibility-num">TMA</span>
-            <span class="credibility-label">Membro associado</span>
-          </li>
-        </ul>
+      <div class="hero-stats" aria-label="Indicadores">
+        <p class="hero-stats-label">Credenciais</p>
+        <div class="stat-row">
+          <span class="stat-num">+10 anos</span>
+          <span class="stat-desc">De experiência em insolvência empresarial</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-num">SP · RJ · PE</span>
+          <span class="stat-desc">Estados com processos conduzidos</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-num">Lei 11.101</span>
+          <span class="stat-desc">Especialização exclusiva — sem dispersão de foco</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BARRA CREDIBILIDADE -->
+<div class="cred-bar" aria-label="Diferenciais">
+  <div class="container">
+    <ul class="cred-list">
+      <li class="cred-item">
+        <span class="cred-num">100%</span>
+        <span class="cred-label">Dedicação exclusiva</span>
+      </li>
+      <li class="cred-item">
+        <span class="cred-num">Lei 11.101</span>
+        <span class="cred-label">Especialização</span>
+      </li>
+      <li class="cred-item">
+        <span class="cred-num">TMA</span>
+        <span class="cred-label">Membro associado</span>
+      </li>
+      <li class="cred-item">
+        <span class="cred-num">CNJ</span>
+        <span class="cred-label">Relatórios padronizados</span>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- SOBRE -->
+<section class="sobre" id="sobre" aria-labelledby="sobre-title">
+  <div class="container">
+    <div class="sobre-inner">
+      <div class="reveal">
+        <span class="sobre-tag">Sobre a Ascesa</span>
+        <h2 class="sobre-title" id="sobre-title">
+          Auxiliar o Judiciário<br>é nossa única função
+        </h2>
+        <p class="sobre-text">
+          A Ascesa foi criada com um propósito definido: atuar na administração judicial com o mesmo nível de exigência técnica que os processos de insolvência demandam. Não somos generalistas — atuamos exclusivamente na Lei 11.101/2005.
+        </p>
+        <p class="sobre-text">
+          Nosso papel é ser o elo entre o Judiciário, a empresa em crise e os credores, garantindo que cada etapa do processo seja conduzida com celeridade, rigor e transparência integral.
+        </p>
+      </div>
+
+      <div class="pilares reveal reveal-delay-2">
+        <div class="pilar">
+          <span class="pilar-num">01</span>
+          <div>
+            <p class="pilar-titulo">Dedicação exclusiva</p>
+            <p class="pilar-desc">Atuamos apenas em processos de insolvência. Sem dispersão, sem conflito de interesses.</p>
+          </div>
+        </div>
+        <div class="pilar">
+          <span class="pilar-num">02</span>
+          <div>
+            <p class="pilar-titulo">Transparência ativa</p>
+            <p class="pilar-desc">Relatórios completos e comunicação direta com todas as partes do processo.</p>
+          </div>
+        </div>
+        <div class="pilar">
+          <span class="pilar-num">03</span>
+          <div>
+            <p class="pilar-titulo">Equipe multidisciplinar</p>
+            <p class="pilar-desc">Advogados, contadores e administradores integrados em cada processo.</p>
+          </div>
+        </div>
+        <div class="pilar">
+          <span class="pilar-num">04</span>
+          <div>
+            <p class="pilar-titulo">Conformidade com o CNJ</p>
+            <p class="pilar-desc">Relatórios padronizados conforme as diretrizes do Conselho Nacional de Justiça.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVIÇOS -->
+<section class="servicos" id="servicos" aria-labelledby="servicos-title">
+  <div class="container">
+    <div class="section-header reveal">
+      <div>
+        <span class="section-tag">Áreas de atuação</span>
+        <h2 class="section-title" id="servicos-title">O que fazemos</h2>
       </div>
     </div>
 
-    <!-- ============================================
-         SOBRE
-    ============================================= -->
-    <section class="section" id="sobre" aria-labelledby="sobre-title">
-      <div class="container">
-        <div class="about-grid">
+    <ul class="servicos-grid reveal reveal-delay-1">
+      <li class="servico-item">
+        <div class="servico-num" aria-hidden="true">I</div>
+        <h3 class="servico-titulo">Recuperação Judicial</h3>
+        <p class="servico-desc">Gestão completa do processo recuperacional: relatórios, assembleias, fiscalização do plano e interlocução com credores.</p>
+      </li>
+      <li class="servico-item">
+        <div class="servico-num" aria-hidden="true">II</div>
+        <h3 class="servico-titulo">Falências</h3>
+        <p class="servico-desc">Arrecadação, guarda e avaliação de bens; apuração do passivo; prestações de contas ao Juízo e credores.</p>
+      </li>
+      <li class="servico-item">
+        <div class="servico-num" aria-hidden="true">III</div>
+        <h3 class="servico-titulo">Recuperação Extrajudicial</h3>
+        <p class="servico-desc">Suporte na negociação e na homologação do plano extrajudicial, com acompanhamento integral do processo.</p>
+      </li>
+      <li class="servico-item">
+        <div class="servico-num" aria-hidden="true">IV</div>
+        <h3 class="servico-titulo">Assembleia de Credores</h3>
+        <p class="servico-desc">Organização, convocação e condução de AGCs — presenciais e virtuais — com apuração transparente de votos.</p>
+      </li>
+      <li class="servico-item">
+        <div class="servico-num" aria-hidden="true">V</div>
+        <h3 class="servico-titulo">Habilitações e Divergências</h3>
+        <p class="servico-desc">Análise técnica dos créditos, elaboração do quadro geral e tratamento das impugnações perante o Juízo.</p>
+      </li>
+      <li class="servico-item">
+        <div class="servico-num" aria-hidden="true">VI</div>
+        <h3 class="servico-titulo">Outras Nomeações</h3>
+        <p class="servico-desc">Inventariante judicial, dissolução de sociedade, penhora de faturamento e insolvência civil.</p>
+      </li>
+    </ul>
+  </div>
+</section>
 
-          <div>
-            <span class="section-label">Sobre a Ascesa</span>
-            <h2 class="about-heading" id="sobre-title">
-              Auxiliar o Judiciário<br>é nossa função
-            </h2>
-            <p class="about-text">
-              A Ascesa foi fundada com um propósito claro: atuar na administração judicial com o mesmo nível de exigência técnica que os processos de insolvência demandam. Não somos generalistas. Atuamos exclusivamente na Lei 11.101/2005.
-            </p>
-            <p class="about-text" style="margin-top:1rem;">
-              Nosso papel é ser o elo entre o Judiciário, a empresa em crise e os credores — garantindo que cada etapa do processo seja conduzida com celeridade, rigor e transparência integral.
-            </p>
-          </div>
-
-          <div>
-            <dl class="about-values">
-
-              <div class="about-value fade-in">
-                <dt class="about-value-num">01</dt>
-                <div class="about-value-text">
-                  <h4>Dedicação exclusiva</h4>
-                  <p>Atuamos apenas em processos de insolvência empresarial. Sem dispersão de foco.</p>
-                </div>
-              </div>
-
-              <div class="about-value fade-in">
-                <dt class="about-value-num">02</dt>
-                <div class="about-value-text">
-                  <h4>Transparência ativa</h4>
-                  <p>Relatórios completos, portal de documentos e comunicação direta com todas as partes.</p>
-                </div>
-              </div>
-
-              <div class="about-value fade-in">
-                <dt class="about-value-num">03</dt>
-                <div class="about-value-text">
-                  <h4>Equipe multidisciplinar</h4>
-                  <p>Advogados, contadores e administradores trabalhando de forma integrada em cada processo.</p>
-                </div>
-              </div>
-
-              <div class="about-value fade-in">
-                <dt class="about-value-num">04</dt>
-                <div class="about-value-text">
-                  <h4>Conformidade com o CNJ</h4>
-                  <p>Relatórios padronizados conforme as diretrizes do Conselho Nacional de Justiça.</p>
-                </div>
-              </div>
-
-            </dl>
-          </div>
-
+<!-- EQUIPE -->
+<section class="socio-section" id="equipe" aria-labelledby="socio-nome">
+  <div class="container">
+    <div class="socio-inner">
+      <div class="socio-foto-wrap reveal">
+        <div class="socio-foto-bg" aria-hidden="true"></div>
+        <div class="socio-foto" role="img" aria-label="Gabriel Battagin Martins">
+          <!-- Substituir pela tag img quando tiver foto: -->
+          <!-- <img src="gabriel.jpg" alt="Gabriel Battagin Martins"> -->
         </div>
       </div>
-    </section>
 
-    <!-- ============================================
-         SERVIÇOS
-    ============================================= -->
-    <section class="section section--dark" id="servicos" aria-labelledby="servicos-title">
-      <div class="container">
-        <span class="section-label">Áreas de atuação</span>
-        <h2 id="servicos-title" style="color:var(--color-white); max-width: 18ch;">
-          O que fazemos
-        </h2>
+      <div class="reveal reveal-delay-2">
+        <span class="socio-tag">Quem responde pelo processo</span>
+        <h2 class="socio-nome" id="socio-nome">Gabriel Battagin<br>Martins</h2>
+        <p class="socio-cargo">Sócio Fundador · Administrador Judicial</p>
 
-        <ul class="services-grid" role="list">
+        <p class="socio-bio">
+          Advogado com atuação exclusiva no direito da insolvência empresarial, com trajetória construída em processos de recuperação judicial e falência de médio e grande porte nos estados de São Paulo, Rio de Janeiro e Pernambuco. Ao longo de mais de uma década, acumulou visão técnica e operacional sobre todas as fases do procedimento recuperacional.
+        </p>
+        <p class="socio-bio">
+          Fundou a Ascesa com o propósito de oferecer ao Judiciário uma administração judicial especializada, ágil e com transparência integral — sem dispersão de foco em outras áreas do direito.
+        </p>
 
-          <li class="service-item fade-in">
-            <span class="service-icon" aria-hidden="true">I</span>
-            <h3>Recuperação Judicial</h3>
-            <p>Gestão completa do processo recuperacional: relatórios, assembleias, fiscalização do plano e interlocução com credores.</p>
-          </li>
-
-          <li class="service-item fade-in">
-            <span class="service-icon" aria-hidden="true">II</span>
-            <h3>Falências</h3>
-            <p>Arrecadação, guarda e avaliação de bens; apuração do passivo; prestações de contas ao Juízo e credor.</p>
-          </li>
-
-          <li class="service-item fade-in">
-            <span class="service-icon" aria-hidden="true">III</span>
-            <h3>Recuperação Extrajudicial</h3>
-            <p>Suporte na negociação e na homologação do plano extrajudicial, com acompanhamento integral do processo.</p>
-          </li>
-
-          <li class="service-item fade-in">
-            <span class="service-icon" aria-hidden="true">IV</span>
-            <h3>Assembleia de Credores</h3>
-            <p>Organização, convocação e condução de AGCs — presenciais e virtuais — com apuração transparente de votos.</p>
-          </li>
-
-          <li class="service-item fade-in">
-            <span class="service-icon" aria-hidden="true">V</span>
-            <h3>Habilitações e Divergências</h3>
-            <p>Análise técnica dos créditos, elaboração do quadro geral e tratamento das impugnações perante o Juízo.</p>
-          </li>
-
-          <li class="service-item fade-in">
-            <span class="service-icon" aria-hidden="true">VI</span>
-            <h3>Outras Nomeações</h3>
-            <p>Inventariante judicial, dissolução de sociedade, penhora de faturamento e insolvência civil.</p>
-          </li>
-
-        </ul>
+        <dl class="socio-creds">
+          <div class="cred-row">
+            <dt class="cred-key">OAB</dt>
+            <dd class="cred-val">SP 174.874</dd>
+          </div>
+          <div class="cred-row">
+            <dt class="cred-key">Formação</dt>
+            <dd class="cred-val">Direito · Pós-graduação em Direito Empresarial</dd>
+          </div>
+          <div class="cred-row">
+            <dt class="cred-key">Certificação</dt>
+            <dd class="cred-val">Administrador Judicial — TMA Brasil · IBAJUD</dd>
+          </div>
+          <div class="cred-row">
+            <dt class="cred-key">Associações</dt>
+            <dd class="cred-val">TMA Brasil · IBAJUD · Comissão de Falências OAB/SP</dd>
+          </div>
+          <div class="cred-row">
+            <dt class="cred-key">E-mail</dt>
+            <dd class="cred-val"><a href="mailto:gabriel@ascesa.adv.br">gabriel@ascesa.adv.br</a></dd>
+          </div>
+        </dl>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
 
-    <!-- ============================================
-         EQUIPE / SÓCIO
-    ============================================= -->
-    <section class="section" id="equipe" aria-labelledby="equipe-title">
-      <div class="container">
-        <span class="section-label">Quem responde pelo processo</span>
+<!-- PROCESSOS -->
+<section class="processos" id="processos" aria-labelledby="processos-title">
+  <div class="container">
+    <div class="processos-intro reveal">
+      <div>
+        <span class="section-tag">Processos em andamento</span>
+        <h2 class="section-title" id="processos-title">Transparência<br>em cada etapa</h2>
+      </div>
+      <p class="processos-desc">
+        Disponibilizamos informações atualizadas sobre todos os processos sob nossa administração. Credores e partes interessadas podem acompanhar documentos, relatórios e prazos.
+      </p>
+    </div>
 
-        <div class="socio-grid">
-
-          <!-- Foto -->
-          <div class="socio-photo-wrap">
-            <div class="socio-photo-placeholder" role="img" aria-label="Foto de Gabriel Battagin Martins">
-              <span aria-hidden="true">G</span>
-            </div>
-          </div>
-
-          <!-- Info -->
-          <div class="socio-info">
-            <h2 class="socio-name has-marker" id="equipe-title">
-              Gabriel Battagin Martins
-            </h2>
-            <span class="socio-role">Sócio Fundador · Administrador Judicial</span>
-
-            <p class="socio-bio">
-              Advogado com atuação exclusiva no direito da insolvência empresarial, com trajetória construída em processos de recuperação judicial e falência de médio e grande porte nos estados de São Paulo, Rio de Janeiro e Pernambuco. Ao longo de mais de uma década, atuou em processos relevantes do setor industrial, comercial e de serviços, acumulando visão técnica e operacional sobre todas as fases do procedimento recuperacional.
-            </p>
-            <p class="socio-bio">
-              Fundou a Ascesa com o propósito de oferecer ao Judiciário uma administração judicial especializada, ágil e com transparência integral — sem dispersão de foco em outras áreas do direito.
-            </p>
-
-            <dl class="socio-credentials">
-              <div class="socio-cred">
-                <dt class="socio-cred-type">OAB</dt>
-                <dd class="socio-cred-value">SP 174.874</dd>
-              </div>
-              <div class="socio-cred">
-                <dt class="socio-cred-type">Formação</dt>
-                <dd class="socio-cred-value">Direito — [Faculdade] · Pós-graduação em Direito Empresarial</dd>
-              </div>
-              <div class="socio-cred">
-                <dt class="socio-cred-type">Certificação</dt>
-                <dd class="socio-cred-value">Administrador Judicial — TMA Brasil / IBAJUD</dd>
-              </div>
-              <div class="socio-cred">
-                <dt class="socio-cred-type">Associações</dt>
-                <dd class="socio-cred-value">TMA Brasil · IBAJUD · Comissão de Falências OAB/SP</dd>
-              </div>
-              <div class="socio-cred">
-                <dt class="socio-cred-type">E-mail</dt>
-                <dd class="socio-cred-value">
-                  <a href="mailto:gabriel@ascesa.adv.br" style="color:var(--color-primary);">gabriel@ascesa.adv.br</a>
-                </dd>
-              </div>
-            </dl>
-          </div>
-
+    <ul class="processo-list reveal reveal-delay-1">
+      <li class="processo-item">
+        <div>
+          <p class="processo-nome">Construtora Terraço S/A e outras</p>
+          <p class="processo-meta">Passivo: R$ 48,3 milhões · 2ª Vara de Falências e Recuperações — São Paulo/SP</p>
         </div>
+        <span class="badge badge-rj">RJ</span>
+      </li>
+      <li class="processo-item">
+        <div>
+          <p class="processo-nome">Grupo Venturo Transportes Ltda</p>
+          <p class="processo-meta">Passivo: R$ 22,7 milhões · 1ª Vara Cível — Campinas/SP</p>
+        </div>
+        <span class="badge badge-fa">Falência</span>
+      </li>
+      <li class="processo-item">
+        <div>
+          <p class="processo-nome">Indústria Metalúrgica Fortuna Ltda</p>
+          <p class="processo-meta">Passivo: R$ 31,1 milhões · 3ª Vara Empresarial — São Paulo/SP</p>
+        </div>
+        <span class="badge badge-rj">RJ</span>
+      </li>
+      <li class="processo-item">
+        <div>
+          <p class="processo-nome">Distribuidora Alvora Alimentos S/A</p>
+          <p class="processo-meta">Passivo: R$ 15,9 milhões · 1ª Vara de Falências — Santos/SP</p>
+        </div>
+        <span class="badge badge-re">RE</span>
+      </li>
+    </ul>
+
+    <div style="margin-top: 2.5rem;" class="reveal">
+      <a href="#contato" class="btn btn-ghost">Solicitar acesso a documentos</a>
+    </div>
+  </div>
+</section>
+
+<!-- PUBLICAÇÕES -->
+<section class="publicacoes" id="publicacoes" aria-labelledby="pub-title">
+  <div class="container">
+    <div class="section-header reveal">
+      <div>
+        <span class="section-tag">Publicações e Jurisprudência</span>
+        <h2 class="section-title" id="pub-title">Produção técnica</h2>
       </div>
-    </section>
+    </div>
 
-    <!-- ============================================
-         PROCESSOS
-    ============================================= -->
-    <section class="section section--alt" id="processos" aria-labelledby="processos-title">
-      <div class="container">
+    <ul class="pub-grid reveal reveal-delay-1">
+      <li class="pub-item">
+        <time class="pub-data" datetime="2026-08">Ago 2026</time>
+        <a href="#" class="pub-titulo">Impactos do Provimento CNJ 231/2026 sobre a remuneração dos administradores judiciais</a>
+        <span class="pub-fonte">Migalhas</span>
+      </li>
+      <li class="pub-item">
+        <time class="pub-data" datetime="2026-07">Jul 2026</time>
+        <a href="#" class="pub-titulo">Lei 15.472/2026: honorários advocatícios com prioridade na falência</a>
+        <span class="pub-fonte">Conjur</span>
+      </li>
+      <li class="pub-item">
+        <time class="pub-data" datetime="2026-05">Mai 2026</time>
+        <a href="#" class="pub-titulo">Recuperação extrajudicial e credores não aderentes: limites da força vinculante do plano</a>
+        <span class="pub-fonte">Ascesa</span>
+      </li>
+    </ul>
+  </div>
+</section>
 
-        <div class="processos-intro">
-          <div>
-            <span class="section-label">Processos em andamento</span>
-            <h2 id="processos-title">Transparência<br>em cada etapa</h2>
+<!-- CTA BANNER -->
+<div class="cta-banner">
+  <div class="container">
+    <div class="cta-inner reveal">
+      <h2 class="cta-titulo">Precisa de um administrador judicial de confiança?</h2>
+      <a href="#contato" class="btn btn-primary">Fale com a Ascesa</a>
+    </div>
+  </div>
+</div>
+
+<!-- CONTATO -->
+<section class="contato" id="contato" aria-labelledby="contato-title">
+  <div class="container">
+    <div class="contato-inner">
+      <div class="reveal">
+        <span class="section-tag">Contato</span>
+        <h2 class="contato-info-titulo" id="contato-title">Entre em<br>contato</h2>
+        <p class="contato-info-desc">
+          Para consultas sobre nomeações, processos em andamento ou informações institucionais, utilize o formulário ou entre em contato diretamente.
+        </p>
+        <dl class="contato-dados">
+          <div class="dado-item">
+            <dt class="dado-label">E-mail</dt>
+            <dd class="dado-val"><a href="mailto:contato@ascesa.adv.br">contato@ascesa.adv.br</a></dd>
           </div>
-          <p style="align-self:end;">
-            Disponibilizamos informações atualizadas sobre todos os processos sob nossa administração. Credores e partes interessadas podem acompanhar documentos, relatórios e prazos.
+          <div class="dado-item">
+            <dt class="dado-label">Telefone / WhatsApp</dt>
+            <dd class="dado-val"><a href="tel:+5511000000000">(11) XXXXX-XXXX</a></dd>
+          </div>
+          <div class="dado-item">
+            <dt class="dado-label">Endereço</dt>
+            <dd class="dado-val">[Endereço] — São Paulo/SP</dd>
+          </div>
+          <div class="dado-item">
+            <dt class="dado-label">Horário</dt>
+            <dd class="dado-val">Segunda a sexta, 9h às 18h</dd>
+          </div>
+        </dl>
+      </div>
+
+      <form class="form reveal reveal-delay-2" action="https://formspree.io/f/XXXXXXXX" method="POST" novalidate aria-label="Formulário de contato">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="nome">Nome completo</label>
+            <input type="text" id="nome" name="nome" required autocomplete="name" aria-describedby="nome-err">
+            <span class="field-error" id="nome-err" data-field="nome">Informe seu nome.</span>
+          </div>
+          <div class="form-group">
+            <label for="email">E-mail</label>
+            <input type="email" id="email" name="email" required autocomplete="email" aria-describedby="email-err">
+            <span class="field-error" id="email-err" data-field="email">E-mail inválido.</span>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="tel">Telefone</label>
+            <input type="tel" id="tel" name="telefone" required placeholder="(XX) XXXXX-XXXX" autocomplete="tel" aria-describedby="tel-err">
+            <span class="field-error" id="tel-err" data-field="tel">Informe um telefone.</span>
+          </div>
+          <div class="form-group">
+            <label for="assunto">Assunto</label>
+            <select id="assunto" name="assunto" required aria-describedby="assunto-err">
+              <option value="">Selecione…</option>
+              <option value="recuperacao-judicial">Recuperação Judicial</option>
+              <option value="falencia">Falência</option>
+              <option value="recuperacao-extrajudicial">Recuperação Extrajudicial</option>
+              <option value="habilitacao">Habilitação de Crédito</option>
+              <option value="assembleia">Assembleia de Credores</option>
+              <option value="outro">Outro</option>
+            </select>
+            <span class="field-error" id="assunto-err" data-field="assunto">Selecione um assunto.</span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="mensagem">Mensagem</label>
+          <textarea id="mensagem" name="mensagem" required placeholder="Descreva sua consulta…" aria-describedby="msg-err"></textarea>
+          <span class="field-error" id="msg-err" data-field="mensagem">Escreva uma mensagem.</span>
+        </div>
+        <div>
+          <button type="submit" class="btn btn-primary" id="submitBtn">Enviar mensagem</button>
+        </div>
+        <div class="form-status" id="formStatus" role="alert" aria-live="polite"></div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <p class="footer-brand-nome">ASCESA</p>
+        <p class="footer-brand-desc">Escritório especializado em administração judicial, recuperação judicial e falências. Atuação técnica com transparência integral.</p>
+        <div class="nomeacao-box">
+          <span class="nomeacao-label">Dados para nomeação</span>
+          <p class="nomeacao-texto">
+            ASCESA ADMINISTRAÇÃO JUDICIAL LTDA., CNPJ n.º [XX.XXX.XXX/0001-XX], com sede à [Endereço completo], São Paulo/SP, representada por Gabriel Battagin Martins, advogado inscrito na OAB/SP n.º 174.874.
           </p>
         </div>
-
-        <ul class="processo-list fade-in" role="list">
-
-          <li class="processo-item">
-            <div>
-              <p class="processo-nome">Construtora Terraço S/A e outras</p>
-              <p class="processo-passivo">Passivo: R$ 48,3 milhões · 2ª Vara de Falências e Recuperações — São Paulo/SP</p>
-            </div>
-            <span class="processo-tipo processo-tipo--rj" aria-label="Recuperação Judicial">RJ</span>
-          </li>
-
-          <li class="processo-item">
-            <div>
-              <p class="processo-nome">Grupo Venturo Transportes Ltda</p>
-              <p class="processo-passivo">Passivo: R$ 22,7 milhões · 1ª Vara Cível — Campinas/SP</p>
-            </div>
-            <span class="processo-tipo processo-tipo--falencia" aria-label="Falência">Falência</span>
-          </li>
-
-          <li class="processo-item">
-            <div>
-              <p class="processo-nome">Indústria Metalúrgica Fortuna Ltda</p>
-              <p class="processo-passivo">Passivo: R$ 31,1 milhões · 3ª Vara Empresarial — São Paulo/SP</p>
-            </div>
-            <span class="processo-tipo processo-tipo--rj" aria-label="Recuperação Judicial">RJ</span>
-          </li>
-
-          <li class="processo-item">
-            <div>
-              <p class="processo-nome">Distribuidora Alvora Alimentos S/A</p>
-              <p class="processo-passivo">Passivo: R$ 15,9 milhões · 1ª Vara de Falências — Santos/SP</p>
-            </div>
-            <span class="processo-tipo processo-tipo--re" aria-label="Recuperação Extrajudicial">RE</span>
-          </li>
-
-        </ul>
-
-        <div style="margin-top: 2.5rem;">
-          <a href="#contato" class="btn btn-outline-dark">
-            Solicitar acesso a documentos
-          </a>
-        </div>
-
       </div>
-    </section>
 
-    <!-- ============================================
-         PUBLICAÇÕES
-    ============================================= -->
-    <section class="section" id="publicacoes" aria-labelledby="pub-title">
-      <div class="container">
-        <span class="section-label">Publicações e Jurisprudência</span>
-        <h2 id="pub-title">Produção técnica</h2>
-
-        <ul class="pub-grid" role="list">
-
-          <li class="pub-item fade-in">
-            <time class="pub-date" datetime="2026-08">Ago 2026</time>
-            <a href="#" class="pub-title">
-              Impactos do Provimento CNJ 231/2026 sobre a remuneração dos administradores judiciais
-            </a>
-            <span class="pub-source">Publicado em Migalhas</span>
-          </li>
-
-          <li class="pub-item fade-in">
-            <time class="pub-date" datetime="2026-07">Jul 2026</time>
-            <a href="#" class="pub-title">
-              Lei 15.472/2026: honorários advocatícios com prioridade na falência
-            </a>
-            <span class="pub-source">Publicado em Conjur</span>
-          </li>
-
-          <li class="pub-item fade-in">
-            <time class="pub-date" datetime="2026-05">Mai 2026</time>
-            <a href="#" class="pub-title">
-              Recuperação extrajudicial e credores não aderentes: limites da força vinculante do plano
-            </a>
-            <span class="pub-source">Publicado no site Ascesa</span>
-          </li>
-
+      <div class="footer-col">
+        <h4>Serviços</h4>
+        <ul>
+          <li><a href="#servicos">Recuperação Judicial</a></li>
+          <li><a href="#servicos">Falências</a></li>
+          <li><a href="#servicos">Recuperação Extrajudicial</a></li>
+          <li><a href="#servicos">Assembleias de Credores</a></li>
+          <li><a href="#servicos">Habilitações</a></li>
         </ul>
       </div>
-    </section>
 
-    <!-- ============================================
-         CTA BANNER
-    ============================================= -->
-    <div class="cta-banner" role="complementary">
-      <div class="container">
-        <div class="cta-banner-inner">
-          <h2>Precisa de um administrador judicial de confiança?</h2>
-          <a href="#contato" class="btn btn-outline">Fale com a Ascesa</a>
-        </div>
+      <div class="footer-col">
+        <h4>Institucional</h4>
+        <ul>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#equipe">Equipe</a></li>
+          <li><a href="#processos">Processos</a></li>
+          <li><a href="#publicacoes">Publicações</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
       </div>
     </div>
 
-    <!-- ============================================
-         CONTATO
-    ============================================= -->
-    <section class="section" id="contato" aria-labelledby="contato-title">
-      <div class="container">
-        <div class="contact-grid">
-
-          <!-- Info -->
-          <div class="contact-info">
-            <span class="section-label">Contato</span>
-            <h2 id="contato-title">Entre em contato</h2>
-            <p>
-              Para consultas sobre nomeações, processos em andamento ou informações institucionais, utilize o formulário ao lado ou entre em contato diretamente.
-            </p>
-
-            <dl class="contact-details">
-              <div class="contact-detail">
-                <dt class="contact-detail-label">E-mail</dt>
-                <dd class="contact-detail-value">
-                  <a href="mailto:contato@ascesa.adv.br">contato@ascesa.adv.br</a>
-                </dd>
-              </div>
-              <div class="contact-detail">
-                <dt class="contact-detail-label">Telefone / WhatsApp</dt>
-                <dd class="contact-detail-value">
-                  <a href="tel:+55XX00000000">(XX) XXXXX-XXXX</a>
-                </dd>
-              </div>
-              <div class="contact-detail">
-                <dt class="contact-detail-label">Endereço</dt>
-                <dd class="contact-detail-value">
-                  [Rua, número, sala]<br>
-                  [Bairro] — [Cidade]/[Estado]
-                </dd>
-              </div>
-              <div class="contact-detail">
-                <dt class="contact-detail-label">Horário</dt>
-                <dd class="contact-detail-value">Segunda a sexta, 9h às 18h</dd>
-              </div>
-            </dl>
-          </div>
-
-          <!-- Formulário -->
-          <div>
-            <form
-              class="contact-form"
-              action="https://formspree.io/f/XXXXXXXX"
-              method="POST"
-              novalidate
-              aria-label="Formulário de contato"
-            >
-              <div class="form-row">
-                <div class="form-group">
-                  <label for="nome">Nome completo</label>
-                  <input
-                    type="text"
-                    id="nome"
-                    name="nome"
-                    autocomplete="name"
-                    required
-                    aria-required="true"
-                    aria-describedby="nome-error"
-                  >
-                  <span class="field-error" id="nome-error" data-error="nome" role="alert"></span>
-                </div>
-
-                <div class="form-group">
-                  <label for="email">E-mail</label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    autocomplete="email"
-                    required
-                    aria-required="true"
-                    aria-describedby="email-error"
-                  >
-                  <span class="field-error" id="email-error" data-error="email" role="alert"></span>
-                </div>
-              </div>
-
-              <div class="form-row">
-                <div class="form-group">
-                  <label for="telefone">Telefone</label>
-                  <input
-                    type="tel"
-                    id="telefone"
-                    name="telefone"
-                    autocomplete="tel"
-                    placeholder="(XX) XXXXX-XXXX"
-                    required
-                    aria-required="true"
-                    aria-describedby="telefone-error"
-                  >
-                  <span class="field-error" id="telefone-error" data-error="telefone" role="alert"></span>
-                </div>
-
-                <div class="form-group">
-                  <label for="assunto">Assunto</label>
-                  <select
-                    id="assunto"
-                    name="assunto"
-                    required
-                    aria-required="true"
-                    aria-describedby="assunto-error"
-                  >
-                    <option value="">Selecione…</option>
-                    <option value="recuperacao-judicial">Recuperação Judicial</option>
-                    <option value="falencia">Falência</option>
-                    <option value="recuperacao-extrajudicial">Recuperação Extrajudicial</option>
-                    <option value="habilitacao-credito">Habilitação de Crédito</option>
-                    <option value="assembleia-credores">Assembleia de Credores</option>
-                    <option value="outras-nomeacoes">Outras Nomeações</option>
-                    <option value="outro">Outro</option>
-                  </select>
-                  <span class="field-error" id="assunto-error" data-error="assunto" role="alert"></span>
-                </div>
-              </div>
-
-              <div class="form-group">
-                <label for="mensagem">Mensagem</label>
-                <textarea
-                  id="mensagem"
-                  name="mensagem"
-                  required
-                  aria-required="true"
-                  aria-describedby="mensagem-error"
-                  placeholder="Descreva brevemente sua consulta…"
-                ></textarea>
-                <span class="field-error" id="mensagem-error" data-error="mensagem" role="alert"></span>
-              </div>
-
-              <div class="form-submit-wrap">
-                <button type="submit" class="btn btn-primary">Enviar mensagem</button>
-                <div class="form-status" role="alert" aria-live="polite"></div>
-              </div>
-            </form>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- ============================================
-       FOOTER
-  ============================================= -->
-  <footer class="site-footer" role="contentinfo">
-    <div class="container">
-      <div class="footer-inner">
-
-        <div class="footer-brand">
-          <span class="footer-logo-text">Ascesa</span>
-          <p>Escritório especializado em administração judicial, recuperação judicial e falências. Atuação técnica com transparência integral.</p>
-
-          <!-- Dados para nomeação — bloco crítico para magistrados -->
-          <div style="margin-top:2rem; padding-top:1.5rem; border-top: 1px solid rgba(255,255,255,0.08);">
-            <p style="font-size:0.7rem; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:rgba(255,255,255,0.3); margin-bottom:0.75rem; max-width:none;">Dados para nomeação</p>
-            <p style="font-size:0.8rem; color:rgba(255,255,255,0.45); line-height:1.7; max-width:42ch;">
-              ASCESA ADMINISTRAÇÃO JUDICIAL LTDA., CNPJ n.º [XX.XXX.XXX/0001-XX], com sede à [Endereço completo], São Paulo/SP, representada por Gabriel Battagin Martins, advogado inscrito na OAB/SP n.º 174.874.
-            </p>
-          </div>
-        </div>
-
-        <div class="footer-col">
-          <h4>Serviços</h4>
-          <ul>
-            <li><a href="#servicos">Recuperação Judicial</a></li>
-            <li><a href="#servicos">Falências</a></li>
-            <li><a href="#servicos">Recuperação Extrajudicial</a></li>
-            <li><a href="#servicos">Assembleias de Credores</a></li>
-            <li><a href="#servicos">Habilitações</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-col">
-          <h4>Institucional</h4>
-          <ul>
-            <li><a href="#sobre">Sobre a Ascesa</a></li>
-            <li><a href="#equipe">Equipe</a></li>
-            <li><a href="#processos">Processos</a></li>
-            <li><a href="#publicacoes">Publicações</a></li>
-            <li><a href="#contato">Contato</a></li>
-          </ul>
-        </div>
-
-      </div>
-
-      <div class="footer-bottom">
-        <span>© <span class="js-year"></span> Ascesa Administração Judicial. Todos os direitos reservados.</span>
-        <div style="display:flex;gap:1.5rem;">
-          <a href="/politica-de-privacidade.html">Política de Privacidade</a>
-          <a href="/politica-de-privacidade.html">LGPD</a>
-        </div>
+    <div class="footer-bottom">
+      <span>© <span id="ano"></span> Ascesa Administração Judicial. Todos os direitos reservados.</span>
+      <div style="display:flex;gap:1.5rem;">
+        <a href="#">Política de Privacidade</a>
+        <a href="#">LGPD</a>
       </div>
     </div>
-  </footer>
+  </div>
+</footer>
 
-  <!-- WhatsApp flutuante -->
-  <a
-    href="https://wa.me/55XXXXXXXXXXX"
-    class="whatsapp-float"
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="Fale conosco pelo WhatsApp"
-  >
-    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-    </svg>
-  </a>
+<!-- WhatsApp -->
+<a href="https://wa.me/5511000000000" class="wa-btn" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
 
-  <!-- JS -->
-  <script src="js/main.js" defer></script>
-  <script src="js/form.js" defer></script>
+<script>
+'use strict';
 
+// Ano no footer
+document.getElementById('ano').textContent = new Date().getFullYear();
+
+// Header scroll
+const header = document.getElementById('header');
+window.addEventListener('scroll', () => {
+  header.classList.toggle('scrolled', window.scrollY > 40);
+}, { passive: true });
+
+// Menu mobile
+const menuBtn = document.getElementById('menuBtn');
+const mobileNav = document.getElementById('mobileNav');
+menuBtn.addEventListener('click', () => {
+  const open = menuBtn.classList.toggle('open');
+  mobileNav.classList.toggle('open', open);
+  menuBtn.setAttribute('aria-expanded', open);
+  document.body.style.overflow = open ? 'hidden' : '';
+});
+mobileNav.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => {
+    menuBtn.classList.remove('open');
+    mobileNav.classList.remove('open');
+    menuBtn.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  });
+});
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && mobileNav.classList.contains('open')) {
+    menuBtn.classList.remove('open');
+    mobileNav.classList.remove('open');
+    menuBtn.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+});
+
+// Scroll reveal
+const revealEls = document.querySelectorAll('.reveal');
+if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  revealEls.forEach(el => obs.observe(el));
+} else {
+  revealEls.forEach(el => el.classList.add('visible'));
+}
+
+// Máscara telefone
+const telInput = document.getElementById('tel');
+if (telInput) {
+  telInput.addEventListener('input', () => {
+    let v = telInput.value.replace(/\D/g, '').slice(0, 11);
+    if (v.length > 10) v = v.replace(/^(\d{2})(\d{5})(\d{4})$/, '($1) $2-$3');
+    else if (v.length > 6) v = v.replace(/^(\d{2})(\d{4})(\d*)$/, '($1) $2-$3');
+    else if (v.length > 2) v = v.replace(/^(\d{2})(\d*)$/, '($1) $2');
+    telInput.value = v;
+  });
+}
+
+// Formulário
+const form = document.querySelector('.form');
+if (form) {
+  const rules = {
+    nome:     v => v.trim().length >= 2,
+    email:    v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()),
+    tel:      v => v.replace(/\D/g, '').length >= 10,
+    assunto:  v => v !== '',
+    mensagem: v => v.trim().length >= 5,
+  };
+
+  const validate = name => {
+    const input = form.querySelector(`[name="${name}"]`) || form.querySelector(`#${name}`);
+    const errEl = form.querySelector(`[data-field="${name}"]`);
+    if (!input || !rules[name]) return true;
+    const ok = rules[name](input.value);
+    input.classList.toggle('err', !ok);
+    if (errEl) errEl.classList.toggle('show', !ok);
+    return ok;
+  };
+
+  const fieldMap = { nome: 'nome', email: 'email', telefone: 'tel', assunto: 'assunto', mensagem: 'mensagem' };
+  Object.entries(fieldMap).forEach(([name, id]) => {
+    const el = form.querySelector(`[name="${name}"]`) || form.querySelector(`#${id}`);
+    if (el) {
+      el.addEventListener('blur', () => validate(id));
+      el.addEventListener('input', () => { if (el.classList.contains('err')) validate(id); });
+    }
+  });
+
+  const btn = document.getElementById('submitBtn');
+  const status = document.getElementById('formStatus');
+
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    const allOk = Object.keys(rules).map(validate).every(Boolean);
+    if (!allOk) return;
+
+    btn.disabled = true;
+    btn.textContent = 'Enviando…';
+    status.className = 'form-status';
+
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { Accept: 'application/json' }
+      });
+      if (res.ok) {
+        status.className = 'form-status ok';
+        status.textContent = 'Mensagem enviada. Entraremos em contato em breve.';
+        form.reset();
+      } else throw new Error();
+    } catch {
+      status.className = 'form-status err';
+      status.textContent = 'Erro ao enviar. Tente novamente ou envie por e-mail.';
+    } finally {
+      btn.disabled = false;
+      btn.textContent = 'Enviar mensagem';
+    }
+  });
+}
+</script>
 </body>
 </html>
