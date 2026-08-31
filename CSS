@@ -1,0 +1,88 @@
+/* ============================================================
+   ASCESA — TOKENS DE DESIGN
+   Administração Judicial | Sistema de variáveis base
+   ============================================================ */
+
+:root {
+
+  /* --- PALETA ---
+     Verde escuro: âncora institucional (vem da logo)
+     Bordeaux: acento cirúrgico — aparece UMA vez por bloco, no máximo
+     Neutros: escala fria, não creme
+  ------------------------------------------------------------ */
+  --color-primary:        #1A3D2B;   /* verde institucional — corpo do header, fundos de destaque */
+  --color-primary-light:  #244D38;   /* hover, variação sutil */
+  --color-accent:         #8B1A1A;   /* bordeaux — CTAs, marcador lateral, números */
+  --color-accent-hover:   #6E1414;   /* hover do acento */
+
+  --color-ink:            #0F1410;   /* texto principal — quase-preto com leve verde */
+  --color-ink-mid:        #3D4840;   /* texto secundário, legendas */
+  --color-ink-faint:      #6B736E;   /* texto auxiliar, placeholders */
+
+  --color-surface:        #F7F8F6;   /* fundo base — branco frio, não creme */
+  --color-surface-alt:    #EFF1EE;   /* fundo alternativo de seções */
+  --color-white:          #FFFFFF;
+
+  --color-border:         #D8DDD9;   /* bordas sutis */
+  --color-border-strong:  #B5BDB7;   /* bordas em foco */
+
+  /* --- TIPOGRAFIA ---
+     Cormorant Garamond: display/títulos — autoridade histórica, elegância jurídica
+     Inter: corpo — legibilidade máxima, contraste deliberado com o display
+  ------------------------------------------------------------ */
+  --font-display: 'Cormorant Garamond', 'Georgia', serif;
+  --font-body:    'Inter', 'Helvetica Neue', sans-serif;
+
+  /* Escala tipográfica */
+  --text-xs:   0.75rem;    /* 12px — captions, labels */
+  --text-sm:   0.875rem;   /* 14px — meta, rodapé */
+  --text-base: 1rem;       /* 16px — corpo */
+  --text-lg:   1.125rem;   /* 18px — corpo destacado */
+  --text-xl:   1.25rem;    /* 20px — H4 */
+  --text-2xl:  1.5rem;     /* 24px — H3 */
+  --text-3xl:  1.875rem;   /* 30px — H2 mobile */
+  --text-4xl:  2.5rem;     /* 40px — H2 desktop */
+  --text-5xl:  3.5rem;     /* 56px — H1 mobile */
+  --text-6xl:  5rem;       /* 80px — H1 desktop */
+  --text-7xl:  6.5rem;     /* 104px — display hero */
+
+  /* Line heights */
+  --leading-tight:  1.15;
+  --leading-snug:   1.35;
+  --leading-normal: 1.6;
+  --leading-loose:  1.8;
+
+  /* Letter spacing */
+  --tracking-tight:  -0.02em;
+  --tracking-normal:  0;
+  --tracking-wide:    0.04em;
+  --tracking-wider:   0.08em;
+
+  /* --- LAYOUT --- */
+  --grid-max:           1240px;
+  --grid-max-narrow:     760px;
+  --grid-gutter:          1.5rem;   /* 24px */
+  --section-py-desktop:   6rem;     /* 96px */
+  --section-py-mobile:    3.5rem;   /* 56px */
+
+  /* Raio de borda: zero. Segmento jurídico formal. */
+  --radius: 0px;
+
+  /* --- ELEMENTO ASSINATURA ---
+     Linha vertical em bordeaux — marcador de parágrafo jurídico
+     Aparece ao lado de números de credibilidade e nome do sócio
+  ------------------------------------------------------------ */
+  --marker-width:  2px;
+  --marker-color:  var(--color-accent);
+
+  /* --- SOMBRAS ---
+     Sem rgba(0,0,0,.1) genérica.
+     Sombra com tom verde-escuro para coerência cromática.
+  ------------------------------------------------------------ */
+  --shadow-sm: 0 1px 4px rgba(15, 20, 16, 0.08);
+  --shadow-md: 0 4px 16px rgba(15, 20, 16, 0.12);
+
+  /* --- TRANSIÇÕES --- */
+  --transition-fast:   150ms ease;
+  --transition-normal: 250ms ease;
+}
