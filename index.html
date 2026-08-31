@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Ascesa Administração Judicial | Recuperação Judicial e Falências</title>
+  <meta name="description" content="Escritório especializado em administração judicial, recuperação judicial e falências. Atuação técnica, transparência processual e compromisso com o Judiciário.">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Ascesa Administração Judicial">
+  <meta property="og:description" content="Escritório especializado em administração judicial, recuperação judicial e falências.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ascesa.adv.br">
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://ascesa.adv.br">
+
+  <!-- Fontes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- CSS crítico inline — header + hero acima do fold -->
+  <style>
+    :root{--color-primary:#1A3D2B;--color-white:#ffffff;--font-display:'Cormorant Garamond','Georgia',serif;--font-body:'Inter','Helvetica Neue',sans-serif;}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:var(--font-body);background:#F7F8F6;color:#0F1410;-webkit-font-smoothing:antialiased;}
+    .site-header{position:fixed;top:0;left:0;right:0;z-index:100;background-color:var(--color-primary);}
+    .header-inner{display:flex;align-items:center;justify-content:space-between;height:72px;max-width:1240px;margin-inline:auto;padding-inline:1.5rem;gap:2rem;}
+    .hero{background-color:var(--color-primary);min-height:calc(100vh - 72px);display:flex;align-items:center;}
+  </style>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+
+  <!-- Schema Markup -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LegalService",
+    "name": "Ascesa Administração Judicial",
+    "description": "Escritório especializado em administração judicial, recuperação judicial e falências",
+    "url": "https://ascesa.adv.br",
+    "serviceType": ["Administração Judicial", "Recuperação Judicial", "Falências"]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- ============================================
+       HEADER
+  ============================================= -->
+  <header class="site-header" role="banner">
+    <div class="header-inner container">
+
+      <!-- Logo -->
+      <a href="/" class="header-logo" aria-label="Ascesa — página inicial">
+        <img src="assets/img/logo.png" alt="Ascesa Administração Judicial" height="40">
+      </a>
+
+      <!-- Nav desktop -->
+      <nav class="header-nav" aria-label="Navegação principal">
+        <a href="#sobre">Sobre</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#equipe">Equipe</a>
+        <a href="#processos">Processos</a>
+        <a href="#publicacoes">Publicações</a>
+        <a href="#contato">Contato</a>
+      </nav>
+
+      <!-- CTA desktop -->
+      <a href="#contato" class="header-cta">Fale conosco</a>
+
+      <!-- Hamburger mobile -->
+      <button
+        class="menu-toggle"
+        aria-expanded="false"
+        aria-controls="mobile-drawer"
+        aria-label="Abrir menu"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Drawer mobile -->
+  <nav
+    class="mobile-drawer"
+    id="mobile-drawer"
+    aria-label="Navegação mobile"
+  >
+    <a href="#sobre">Sobre</a>
+    <a href="#servicos">Serviços</a>
+    <a href="#equipe">Equipe</a>
+    <a href="#processos">Processos</a>
+    <a href="#publicacoes">Publicações</a>
+    <a href="#contato">Contato</a>
+  </nav>
+
+  <main>
+
+    <!-- ============================================
+         HERO
+    ============================================= -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container">
+        <div class="hero-inner">
+
+          <div class="hero-content">
+            <span class="hero-tag">Administração Judicial</span>
+
+            <h1 class="hero-title" id="hero-title">
+              Condução técnica<br>
+              <em>nos momentos</em><br>
+              mais críticos
+            </h1>
+
+            <p class="hero-desc">
+              Atuamos na administração judicial de recuperações e falências com rigor processual, transparência integral e compromisso com o Judiciário e todas as partes envolvidas.
+            </p>
+
+            <div class="hero-actions">
+              <a href="#processos" class="btn btn-primary">Ver processos</a>
+              <a href="#contato" class="btn btn-outline">Fale conosco</a>
+            </div>
+          </div>
+
+          <!-- Card de credibilidade -->
+          <div class="hero-card" aria-label="Números da Ascesa">
+            <p class="hero-card-title">Em andamento</p>
+
+            <div class="hero-stat">
+              <span class="hero-stat-num">12</span>
+              <span class="hero-stat-label">Processos ativos</span>
+            </div>
+
+            <div class="hero-stat">
+              <span class="hero-stat-num">R$ 380M</span>
+              <span class="hero-stat-label">Em passivo administrado</span>
+            </div>
+
+            <div class="hero-stat">
+              <span class="hero-stat-num">3</span>
+              <span class="hero-stat-label">Anos de atuação</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         BARRA DE CREDIBILIDADE
+    ============================================= -->
+    <div class="credibility-bar" aria-label="Indicadores">
+      <div class="container">
+        <ul class="credibility-list" role="list">
+          <li class="credibility-item">
+            <span class="credibility-num">Lei 11.101</span>
+            <span class="credibility-label">Especialização exclusiva</span>
+          </li>
+          <li class="credibility-item">
+            <span class="credibility-num">100%</span>
+            <span class="credibility-label">Transparência processual</span>
+          </li>
+          <li class="credibility-item">
+            <span class="credibility-num">Multi</span>
+            <span class="credibility-label">Equipe disciplinar</span>
+          </li>
+          <li class="credibility-item">
+            <span class="credibility-num">TMA</span>
+            <span class="credibility-label">Membro associado</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ============================================
+         SOBRE
+    ============================================= -->
+    <section class="section" id="sobre" aria-labelledby="sobre-title">
+      <div class="container">
+        <div class="about-grid">
+
+          <div>
+            <span class="section-label">Sobre a Ascesa</span>
+            <h2 class="about-heading" id="sobre-title">
+              Auxiliar o Judiciário<br>é nossa função
+            </h2>
+            <p class="about-text">
+              A Ascesa foi fundada com um propósito claro: atuar na administração judicial com o mesmo nível de exigência técnica que os processos de insolvência demandam. Não somos generalistas. Atuamos exclusivamente na Lei 11.101/2005.
+            </p>
+            <p class="about-text" style="margin-top:1rem;">
+              Nosso papel é ser o elo entre o Judiciário, a empresa em crise e os credores — garantindo que cada etapa do processo seja conduzida com celeridade, rigor e transparência integral.
+            </p>
+          </div>
+
+          <div>
+            <dl class="about-values">
+
+              <div class="about-value fade-in">
+                <dt class="about-value-num">01</dt>
+                <div class="about-value-text">
+                  <h4>Dedicação exclusiva</h4>
+                  <p>Atuamos apenas em processos de insolvência empresarial. Sem dispersão de foco.</p>
+                </div>
+              </div>
+
+              <div class="about-value fade-in">
+                <dt class="about-value-num">02</dt>
+                <div class="about-value-text">
+                  <h4>Transparência ativa</h4>
+                  <p>Relatórios completos, portal de documentos e comunicação direta com todas as partes.</p>
+                </div>
+              </div>
+
+              <div class="about-value fade-in">
+                <dt class="about-value-num">03</dt>
+                <div class="about-value-text">
+                  <h4>Equipe multidisciplinar</h4>
+                  <p>Advogados, contadores e administradores trabalhando de forma integrada em cada processo.</p>
+                </div>
+              </div>
+
+              <div class="about-value fade-in">
+                <dt class="about-value-num">04</dt>
+                <div class="about-value-text">
+                  <h4>Conformidade com o CNJ</h4>
+                  <p>Relatórios padronizados conforme as diretrizes do Conselho Nacional de Justiça.</p>
+                </div>
+              </div>
+
+            </dl>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         SERVIÇOS
+    ============================================= -->
+    <section class="section section--dark" id="servicos" aria-labelledby="servicos-title">
+      <div class="container">
+        <span class="section-label">Áreas de atuação</span>
+        <h2 id="servicos-title" style="color:var(--color-white); max-width: 18ch;">
+          O que fazemos
+        </h2>
+
+        <ul class="services-grid" role="list">
+
+          <li class="service-item fade-in">
+            <span class="service-icon" aria-hidden="true">I</span>
+            <h3>Recuperação Judicial</h3>
+            <p>Gestão completa do processo recuperacional: relatórios, assembleias, fiscalização do plano e interlocução com credores.</p>
+          </li>
+
+          <li class="service-item fade-in">
+            <span class="service-icon" aria-hidden="true">II</span>
+            <h3>Falências</h3>
+            <p>Arrecadação, guarda e avaliação de bens; apuração do passivo; prestações de contas ao Juízo e credor.</p>
+          </li>
+
+          <li class="service-item fade-in">
+            <span class="service-icon" aria-hidden="true">III</span>
+            <h3>Recuperação Extrajudicial</h3>
+            <p>Suporte na negociação e na homologação do plano extrajudicial, com acompanhamento integral do processo.</p>
+          </li>
+
+          <li class="service-item fade-in">
+            <span class="service-icon" aria-hidden="true">IV</span>
+            <h3>Assembleia de Credores</h3>
+            <p>Organização, convocação e condução de AGCs — presenciais e virtuais — com apuração transparente de votos.</p>
+          </li>
+
+          <li class="service-item fade-in">
+            <span class="service-icon" aria-hidden="true">V</span>
+            <h3>Habilitações e Divergências</h3>
+            <p>Análise técnica dos créditos, elaboração do quadro geral e tratamento das impugnações perante o Juízo.</p>
+          </li>
+
+          <li class="service-item fade-in">
+            <span class="service-icon" aria-hidden="true">VI</span>
+            <h3>Outras Nomeações</h3>
+            <p>Inventariante judicial, dissolução de sociedade, penhora de faturamento e insolvência civil.</p>
+          </li>
+
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============================================
+         EQUIPE / SÓCIO
+    ============================================= -->
+    <section class="section" id="equipe" aria-labelledby="equipe-title">
+      <div class="container">
+        <span class="section-label">Quem responde pelo processo</span>
+
+        <div class="socio-grid">
+
+          <!-- Foto -->
+          <div class="socio-photo-wrap">
+            <div class="socio-photo-placeholder" role="img" aria-label="Foto do sócio">
+              <span aria-hidden="true">A</span>
+            </div>
+          </div>
+
+          <!-- Info -->
+          <div class="socio-info">
+            <h2 class="socio-name has-marker" id="equipe-title">
+              [Nome do Sócio]
+            </h2>
+            <span class="socio-role">Sócio Fundador · Administrador Judicial</span>
+
+            <p class="socio-bio">
+              Advogado com atuação dedicada ao direito da insolvência empresarial, com experiência em processos de recuperação judicial e falência de médio e grande porte. [Inclua aqui trajetória, cases relevantes como advogado antes da Ascesa, e o que motivou a criação do escritório.]
+            </p>
+            <p class="socio-bio">
+              Certificado pelo TMA Brasil no Curso de Formação de Administradores Judiciais. Membro da Comissão de Falências e Recuperação Judicial da OAB/[Estado].
+            </p>
+
+            <dl class="socio-credentials">
+              <div class="socio-cred">
+                <dt class="socio-cred-type">OAB</dt>
+                <dd class="socio-cred-value">[Estado] [Número]</dd>
+              </div>
+              <div class="socio-cred">
+                <dt class="socio-cred-type">Formação</dt>
+                <dd class="socio-cred-value">Direito — [Faculdade] · [Pós-graduação]</dd>
+              </div>
+              <div class="socio-cred">
+                <dt class="socio-cred-type">Certificação</dt>
+                <dd class="socio-cred-value">Administrador Judicial — TMA Brasil / IBAJUD</dd>
+              </div>
+              <div class="socio-cred">
+                <dt class="socio-cred-type">Associações</dt>
+                <dd class="socio-cred-value">TMA Brasil · IBAJUD · Comissão OAB/[Estado]</dd>
+              </div>
+              <div class="socio-cred">
+                <dt class="socio-cred-type">E-mail</dt>
+                <dd class="socio-cred-value">
+                  <a href="mailto:contato@ascesa.adv.br" style="color:var(--color-primary);">contato@ascesa.adv.br</a>
+                </dd>
+              </div>
+            </dl>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         PROCESSOS
+    ============================================= -->
+    <section class="section section--alt" id="processos" aria-labelledby="processos-title">
+      <div class="container">
+
+        <div class="processos-intro">
+          <div>
+            <span class="section-label">Processos em andamento</span>
+            <h2 id="processos-title">Transparência<br>em cada etapa</h2>
+          </div>
+          <p style="align-self:end;">
+            Disponibilizamos informações atualizadas sobre todos os processos sob nossa administração. Credores e partes interessadas podem acompanhar documentos, relatórios e prazos.
+          </p>
+        </div>
+
+        <ul class="processo-list fade-in" role="list">
+
+          <li class="processo-item">
+            <div>
+              <p class="processo-nome">[Empresa Recuperanda S/A]</p>
+              <p class="processo-passivo">Passivo: R$ [valor] · Vara [número] — [Cidade]/[Estado]</p>
+            </div>
+            <span class="processo-tipo processo-tipo--rj" aria-label="Recuperação Judicial">RJ</span>
+          </li>
+
+          <li class="processo-item">
+            <div>
+              <p class="processo-nome">[Grupo Industrial Ltda]</p>
+              <p class="processo-passivo">Passivo: R$ [valor] · Vara [número] — [Cidade]/[Estado]</p>
+            </div>
+            <span class="processo-tipo processo-tipo--falencia" aria-label="Falência">Falência</span>
+          </li>
+
+          <li class="processo-item">
+            <div>
+              <p class="processo-nome">[Comércio e Serviços Ltda]</p>
+              <p class="processo-passivo">Passivo: R$ [valor] · Vara [número] — [Cidade]/[Estado]</p>
+            </div>
+            <span class="processo-tipo processo-tipo--rj" aria-label="Recuperação Judicial">RJ</span>
+          </li>
+
+        </ul>
+
+        <div style="margin-top: 2.5rem;">
+          <a href="#contato" class="btn btn-outline-dark">
+            Solicitar acesso a documentos
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================
+         PUBLICAÇÕES
+    ============================================= -->
+    <section class="section" id="publicacoes" aria-labelledby="pub-title">
+      <div class="container">
+        <span class="section-label">Publicações e Jurisprudência</span>
+        <h2 id="pub-title">Produção técnica</h2>
+
+        <ul class="pub-grid" role="list">
+
+          <li class="pub-item fade-in">
+            <time class="pub-date" datetime="2026-08">Ago 2026</time>
+            <a href="#" class="pub-title">
+              Impactos do Provimento CNJ 231/2026 sobre a remuneração dos administradores judiciais
+            </a>
+            <span class="pub-source">Publicado em Migalhas</span>
+          </li>
+
+          <li class="pub-item fade-in">
+            <time class="pub-date" datetime="2026-07">Jul 2026</time>
+            <a href="#" class="pub-title">
+              Lei 15.472/2026: honorários advocatícios com prioridade na falência
+            </a>
+            <span class="pub-source">Publicado em Conjur</span>
+          </li>
+
+          <li class="pub-item fade-in">
+            <time class="pub-date" datetime="2026-05">Mai 2026</time>
+            <a href="#" class="pub-title">
+              Recuperação extrajudicial e credores não aderentes: limites da força vinculante do plano
+            </a>
+            <span class="pub-source">Publicado no site Ascesa</span>
+          </li>
+
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============================================
+         CTA BANNER
+    ============================================= -->
+    <div class="cta-banner" role="complementary">
+      <div class="container">
+        <div class="cta-banner-inner">
+          <h2>Precisa de um administrador judicial de confiança?</h2>
+          <a href="#contato" class="btn btn-outline">Fale com a Ascesa</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================
+         CONTATO
+    ============================================= -->
+    <section class="section" id="contato" aria-labelledby="contato-title">
+      <div class="container">
+        <div class="contact-grid">
+
+          <!-- Info -->
+          <div class="contact-info">
+            <span class="section-label">Contato</span>
+            <h2 id="contato-title">Entre em contato</h2>
+            <p>
+              Para consultas sobre nomeações, processos em andamento ou informações institucionais, utilize o formulário ao lado ou entre em contato diretamente.
+            </p>
+
+            <dl class="contact-details">
+              <div class="contact-detail">
+                <dt class="contact-detail-label">E-mail</dt>
+                <dd class="contact-detail-value">
+                  <a href="mailto:contato@ascesa.adv.br">contato@ascesa.adv.br</a>
+                </dd>
+              </div>
+              <div class="contact-detail">
+                <dt class="contact-detail-label">Telefone / WhatsApp</dt>
+                <dd class="contact-detail-value">
+                  <a href="tel:+55XX00000000">(XX) XXXXX-XXXX</a>
+                </dd>
+              </div>
+              <div class="contact-detail">
+                <dt class="contact-detail-label">Endereço</dt>
+                <dd class="contact-detail-value">
+                  [Rua, número, sala]<br>
+                  [Bairro] — [Cidade]/[Estado]
+                </dd>
+              </div>
+              <div class="contact-detail">
+                <dt class="contact-detail-label">Horário</dt>
+                <dd class="contact-detail-value">Segunda a sexta, 9h às 18h</dd>
+              </div>
+            </dl>
+          </div>
+
+          <!-- Formulário -->
+          <div>
+            <form
+              class="contact-form"
+              action="https://formspree.io/f/XXXXXXXX"
+              method="POST"
+              novalidate
+              aria-label="Formulário de contato"
+            >
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="nome">Nome completo</label>
+                  <input
+                    type="text"
+                    id="nome"
+                    name="nome"
+                    autocomplete="name"
+                    required
+                    aria-required="true"
+                    aria-describedby="nome-error"
+                  >
+                  <span class="field-error" id="nome-error" data-error="nome" role="alert"></span>
+                </div>
+
+                <div class="form-group">
+                  <label for="email">E-mail</label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    autocomplete="email"
+                    required
+                    aria-required="true"
+                    aria-describedby="email-error"
+                  >
+                  <span class="field-error" id="email-error" data-error="email" role="alert"></span>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="telefone">Telefone</label>
+                  <input
+                    type="tel"
+                    id="telefone"
+                    name="telefone"
+                    autocomplete="tel"
+                    placeholder="(XX) XXXXX-XXXX"
+                    required
+                    aria-required="true"
+                    aria-describedby="telefone-error"
+                  >
+                  <span class="field-error" id="telefone-error" data-error="telefone" role="alert"></span>
+                </div>
+
+                <div class="form-group">
+                  <label for="assunto">Assunto</label>
+                  <select
+                    id="assunto"
+                    name="assunto"
+                    required
+                    aria-required="true"
+                    aria-describedby="assunto-error"
+                  >
+                    <option value="">Selecione…</option>
+                    <option value="recuperacao-judicial">Recuperação Judicial</option>
+                    <option value="falencia">Falência</option>
+                    <option value="recuperacao-extrajudicial">Recuperação Extrajudicial</option>
+                    <option value="habilitacao-credito">Habilitação de Crédito</option>
+                    <option value="assembleia-credores">Assembleia de Credores</option>
+                    <option value="outras-nomeacoes">Outras Nomeações</option>
+                    <option value="outro">Outro</option>
+                  </select>
+                  <span class="field-error" id="assunto-error" data-error="assunto" role="alert"></span>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="mensagem">Mensagem</label>
+                <textarea
+                  id="mensagem"
+                  name="mensagem"
+                  required
+                  aria-required="true"
+                  aria-describedby="mensagem-error"
+                  placeholder="Descreva brevemente sua consulta…"
+                ></textarea>
+                <span class="field-error" id="mensagem-error" data-error="mensagem" role="alert"></span>
+              </div>
+
+              <div class="form-submit-wrap">
+                <button type="submit" class="btn btn-primary">Enviar mensagem</button>
+                <div class="form-status" role="alert" aria-live="polite"></div>
+              </div>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================
+       FOOTER
+  ============================================= -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-inner">
+
+        <div class="footer-brand">
+          <span class="footer-logo-text">Ascesa</span>
+          <p>Escritório especializado em administração judicial, recuperação judicial e falências. Atuação técnica com transparência integral.</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Serviços</h4>
+          <ul>
+            <li><a href="#servicos">Recuperação Judicial</a></li>
+            <li><a href="#servicos">Falências</a></li>
+            <li><a href="#servicos">Recuperação Extrajudicial</a></li>
+            <li><a href="#servicos">Assembleias de Credores</a></li>
+            <li><a href="#servicos">Habilitações</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Institucional</h4>
+          <ul>
+            <li><a href="#sobre">Sobre a Ascesa</a></li>
+            <li><a href="#equipe">Equipe</a></li>
+            <li><a href="#processos">Processos</a></li>
+            <li><a href="#publicacoes">Publicações</a></li>
+            <li><a href="#contato">Contato</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <span>© <span class="js-year"></span> Ascesa Administração Judicial. Todos os direitos reservados.</span>
+        <div style="display:flex;gap:1.5rem;">
+          <a href="/politica-de-privacidade.html">Política de Privacidade</a>
+          <a href="/politica-de-privacidade.html">LGPD</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp flutuante -->
+  <a
+    href="https://wa.me/55XXXXXXXXXXX"
+    class="whatsapp-float"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Fale conosco pelo WhatsApp"
+  >
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+  </a>
+
+  <!-- JS -->
+  <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/form.js" defer></script>
+
+</body>
+</html>
