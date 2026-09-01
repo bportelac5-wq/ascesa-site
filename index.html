@@ -5,1131 +5,412 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ascesa Administração Judicial | São Paulo</title>
 <meta name="description" content="Escritório especializado em administração judicial, recuperação judicial e falências. Gabriel Battagin Martins — OAB/SP 174.874.">
-<link rel="icon" href="favicon.ico" sizes="any">
-<link rel="icon" href="favicon.ico" type="image/x-icon">
+<link rel="icon" href="favicon.ico">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-/* =============================================
-   RESET & BASE
-============================================= */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { font-size: 16px; scroll-behavior: smooth; }
-body {
-  font-family: 'Open Sans', sans-serif;
-  background: #ffffff;
-  color: #1a2e1f;
-  overflow-x: hidden;
-  -webkit-font-smoothing: antialiased;
-}
-a { color: inherit; text-decoration: none; }
-img { display: block; max-width: 100%; }
-ul { list-style: none; }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:16px;scroll-behavior:smooth}
+body{font-family:'Open Sans',sans-serif;background:#fff;color:#1a2e1f;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+ul,ol{list-style:none}
 
-/* =============================================
-   VARIÁVEIS
-============================================= */
-:root {
-  --verde:      #1a3d2b;
-  --verde-mid:  #245c3e;
-  --verde-vivo: #2d7a4f;
-  --acento:     #8b1a1a;
-  --branco:     #ffffff;
-  --cinza-claro:#f4f7f5;
-  --cinza-mid:  #e8eeea;
-  --texto:      #1a2e1f;
-  --texto-mid:  #4a6352;
-  --texto-leve: #7a9585;
-  --borda:      #d4e0d8;
-  --font-title: 'Raleway', sans-serif;
-  --font-body:  'Open Sans', sans-serif;
+/* VARIÁVEIS */
+:root{
+  --verde:#1a3d2b;
+  --verde-mid:#245c3e;
+  --verde-claro:#f0f5f1;
+  --bordeaux:#8b1a1a;
+  --bordeaux-dark:#6e1414;
+  --texto:#1a2e1f;
+  --texto-mid:#4a6352;
+  --texto-leve:#7a9585;
+  --borda:#d4e0d8;
+  --cinza-bg:#f4f7f5;
+  --branco:#ffffff;
+  --titulo:'Raleway',sans-serif;
+  --corpo:'Open Sans',sans-serif;
 }
 
-/* =============================================
-   UTILITÁRIOS
-============================================= */
-.container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
-.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
+/* UTILITÁRIOS */
+.container{max-width:1200px;margin:0 auto;padding:0 2rem}
 
-/* =============================================
-   ANIMAÇÕES
-============================================= */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(32px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
-@keyframes lineGrow {
-  from { transform: scaleX(0); }
-  to   { transform: scaleX(1); }
-}
-@keyframes counterUp {
-  from { opacity: 0; transform: translateY(16px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50%       { transform: translateY(-12px); }
-}
-@keyframes pulse {
-  0%, 100% { opacity: 0.4; }
-  50%       { opacity: 0.8; }
-}
-@keyframes gradientShift {
-  0%   { background-position: 0% 50%; }
-  50%  { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(32px);transition:opacity .65s ease,transform .65s ease}
+.reveal.on{opacity:1;transform:none}
+.d1{transition-delay:.1s}
+.d2{transition-delay:.2s}
+.d3{transition-delay:.3s}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
 
-.reveal {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
-}
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-.reveal-delay-1 { transition-delay: 0.1s; }
-.reveal-delay-2 { transition-delay: 0.2s; }
-.reveal-delay-3 { transition-delay: 0.3s; }
-.reveal-delay-4 { transition-delay: 0.4s; }
-
-@media (prefers-reduced-motion: reduce) {
-  .reveal, * { transition: none !important; animation: none !important; }
-  .reveal { opacity: 1; transform: none; }
-}
-
-/* =============================================
+/* ==============================
    HEADER
-============================================= */
-.header {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 100;
-  padding: 0 2rem;
-  height: 72px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: var(--verde);
-  transition: box-shadow 0.3s ease;
+============================== */
+.hdr{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  height:72px;
+  background:var(--verde);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 2rem;
+  transition:box-shadow .3s;
 }
-.header.scrolled {
-  background: var(--verde);
-  box-shadow: 0 2px 20px rgba(0,0,0,0.2);
-  border-bottom: 1px solid rgba(255,255,255,0.08);
-}
+.hdr.scrolled{box-shadow:0 2px 24px rgba(0,0,0,.25)}
 
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-.logo img { height: 44px; }
-.logo-text { display: none; }
+.logo{display:flex;align-items:center;gap:.75rem}
+.logo img{height:42px;width:auto}
 
-.nav { display: flex; align-items: center; gap: 2.5rem; }
-.nav a {
-  font-size: 0.8rem;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.8);
-  transition: color 0.2s;
+.nav-links{display:flex;align-items:center;gap:2rem}
+.nav-links a{
+  font-size:.75rem;font-weight:600;
+  letter-spacing:.1em;text-transform:uppercase;
+  color:rgba(255,255,255,.75);
+  transition:color .2s;
 }
-.nav a:hover { color: #ffffff; }
+.nav-links a:hover{color:#fff}
+.nav-links .cta{
+  padding:.55rem 1.25rem;
+  border:1px solid rgba(255,255,255,.5);
+  color:#fff !important;
+  transition:background .2s,border-color .2s !important;
+}
+.nav-links .cta:hover{background:rgba(255,255,255,.12);border-color:#fff}
 
-.nav-cta {
-  padding: 0.6rem 1.4rem;
-  border: 1px solid var(--acento);
-  color: var(--acento) !important;
-  font-size: 0.75rem !important;
-  letter-spacing: 0.1em !important;
-  transition: background 0.2s, color 0.2s !important;
-}
-.nav-cta:hover {
-  background: var(--acento) !important;
-  color: var(--verde) !important;
-}
+.hbtn{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px}
+.hbtn span{display:block;width:24px;height:1.5px;background:#fff;transition:transform .3s,opacity .3s}
+.hbtn.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.hbtn.open span:nth-child(2){opacity:0}
+.hbtn.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
 
-.menu-btn {
-  display: none;
-  flex-direction: column;
-  gap: 5px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 8px;
+.mob-nav{
+  position:fixed;top:72px;inset:72px 0 0 0;
+  background:var(--verde);z-index:99;
+  display:flex;flex-direction:column;padding:2.5rem 2rem;gap:1.75rem;
+  transform:translateX(100%);transition:transform .35s ease;
 }
-.menu-btn span {
-  display: block;
-  width: 24px;
-  height: 1.5px;
-  background: var(--branco);
-  transition: transform 0.3s, opacity 0.3s;
-}
-.menu-btn.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
-.menu-btn.open span:nth-child(2) { opacity: 0; }
-.menu-btn.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+.mob-nav.open{transform:none}
+.mob-nav a{font-family:var(--titulo);font-size:1.75rem;font-weight:700;color:rgba(255,255,255,.85)}
+.mob-nav a:hover{color:#fff}
 
-.mobile-nav {
-  position: fixed;
-  inset: 72px 0 0 0;
-  background: #f4f7f5;
-  z-index: 99;
-  display: flex;
-  flex-direction: column;
-  padding: 3rem 2rem;
-  gap: 2rem;
-  transform: translateX(100%);
-  transition: transform 0.35s ease;
-}
-.mobile-nav.open { transform: translateX(0); }
-.mobile-nav a {
-  font-family: var(--font-title);
-  font-size: 2rem;
-  font-weight: 700;
-  color: var(--verde);
-  transition: color 0.2s;
-}
-.mobile-nav a:hover { color: var(--acento); }
-
-/* =============================================
+/* ==============================
    HERO
-============================================= */
-.hero {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  position: relative;
-  overflow: hidden;
-  padding-top: 72px;
+============================== */
+.hero{
+  min-height:100vh;padding-top:72px;
+  background:var(--verde);
+  display:flex;align-items:center;
+  position:relative;overflow:hidden;
 }
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+  background-size:72px 72px;
+}
+.hero::after{
+  content:'';position:absolute;
+  right:-150px;top:50%;transform:translateY(-50%);
+  width:550px;height:550px;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,255,255,.04) 0%,transparent 70%);
+}
+.hero-inner{
+  position:relative;z-index:1;
+  display:grid;grid-template-columns:1fr 360px;gap:4rem;
+  align-items:center;padding:5rem 0;
+}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:.5rem;
+  padding:.375rem .875rem;border-radius:100px;
+  border:1px solid rgba(255,255,255,.2);
+  font-size:.7rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+  color:rgba(255,255,255,.7);margin-bottom:1.75rem;
+}
+.hero-badge::before{
+  content:'';width:6px;height:6px;border-radius:50%;
+  background:#a8e6c0;
+  animation:pulse 2s infinite;
+}
+@keyframes pulse{0%,100%{opacity:.4}50%{opacity:1}}
 
-/* Fundo com gradiente animado */
-.hero-bg {
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse 80% 60% at 60% 40%, #1a3d2b 0%, #0d2818 100%);
+.hero-title{
+  font-family:var(--titulo);
+  font-size:clamp(2.75rem,6vw,5rem);
+  font-weight:800;line-height:1.0;letter-spacing:-.03em;
+  color:#fff;margin-bottom:1.5rem;
 }
+.hero-title em{display:block;color:#a8e6c0;font-style:normal}
 
-/* Grid de linhas decorativas */
-.hero-grid {
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.04 1px, transparent 1px);
-  background-size: 80px 80px;
+.hero-desc{
+  font-size:1rem;line-height:1.8;
+  color:rgba(255,255,255,.65);max-width:50ch;margin-bottom:2.5rem;
 }
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap}
 
-/* Orbe flutuante */
-.hero-orb {
-  position: absolute;
-  right: -100px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 600px;
-  height: 600px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(45,122,79,0.15) 0%, transparent 70%);
-  animation: float 8s ease-in-out infinite;
+.btn{
+  display:inline-flex;align-items:center;
+  padding:.875rem 2rem;
+  font-family:var(--corpo);font-size:.78rem;font-weight:700;
+  letter-spacing:.07em;text-transform:uppercase;
+  border:none;cursor:pointer;transition:all .22s;
 }
+.btn:focus-visible{outline:2px solid var(--bordeaux);outline-offset:3px}
+.btn-red{background:var(--bordeaux);color:#fff}
+.btn-red:hover{background:var(--bordeaux-dark);transform:translateY(-1px)}
+.btn-outline{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.4)}
+.btn-outline:hover{border-color:#fff;background:rgba(255,255,255,.08)}
+.btn-dark{background:transparent;color:var(--verde);border:1px solid var(--verde)}
+.btn-dark:hover{background:rgba(26,61,43,.06)}
 
-.hero-inner {
-  position: relative;
-  z-index: 2;
-  display: grid;
-  grid-template-columns: 1fr 380px;
-  gap: 4rem;
-  align-items: center;
-  padding: 5rem 0;
+/* Card stats */
+.hero-card{
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.12);
+  padding:2rem;
 }
+.hero-card-label{
+  font-size:.65rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  color:rgba(255,255,255,.4);margin-bottom:1.5rem;
+}
+.stat{padding:1.25rem 0;border-top:1px solid rgba(255,255,255,.08);display:flex;flex-direction:column;gap:.25rem}
+.stat:first-of-type{border-top:none;padding-top:0}
+.stat-n{font-family:var(--titulo);font-size:2rem;font-weight:800;color:#fff;line-height:1;letter-spacing:-.02em}
+.stat-d{font-size:.78rem;color:rgba(255,255,255,.5)}
 
-.hero-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.4rem 1rem;
-  border: 1px solid var(--borda);
-  border-radius: 100px;
-  font-size: 0.72rem;
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.8);
-  margin-bottom: 2rem;
-  
+/* ==============================
+   BARRA CREDIBILIDADE
+============================== */
+.cred{background:var(--verde-mid);padding:1.25rem 0}
+.cred-list{display:flex;justify-content:center;flex-wrap:wrap}
+.cred-item{
+  display:flex;flex-direction:column;align-items:center;
+  padding:.75rem 2.5rem;border-right:1px solid rgba(255,255,255,.12);
+  text-align:center;gap:.2rem;
 }
-.hero-badge::before {
-  content: '';
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: #c8f5d8;
-  animation: pulse 2s ease infinite;
-}
+.cred-item:last-child{border-right:none}
+.cred-n{font-family:var(--titulo);font-size:1.4rem;font-weight:700;color:#fff;line-height:1}
+.cred-d{font-size:.65rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.5)}
 
-.hero-title {
-  font-family: var(--font-title);
-  font-size: clamp(3rem, 6vw, 5.5rem);
-  font-weight: 800;
-  line-height: 1;
-  letter-spacing: -0.03em;
-  color: var(--branco);
-  margin-bottom: 1.5rem;
-  
-}
-.hero-title .linha-verde {
-  display: block;
-  color: #a8e6c0;
-}
-
-.hero-sub {
-  font-size: 1.05rem;
-  line-height: 1.7;
-  color: rgba(255,255,255,0.7);
-  max-width: 48ch;
-  margin-bottom: 2.5rem;
-  
-}
-
-.hero-actions {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-  
-}
-
-.btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.9rem 2rem;
-  font-family: var(--font-body);
-  font-size: 0.82rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  cursor: pointer;
-  border: none;
-  transition: all 0.25s ease;
-}
-.btn:focus-visible { outline: 2px solid var(--acento); outline-offset: 3px; }
-
-.btn-primary {
-  background: var(--acento);
-  color: #ffffff;
-  border-radius: 2px;
-}
-.btn-primary:hover {
-  background: #6e1414;
-  transform: translateY(-1px);
-}
-
-.btn-ghost {
-  background: transparent;
-  color: var(--verde);
-  border: 1px solid var(--verde);
-  border-radius: 2px;
-}
-.btn-ghost:hover {
-  border-color: var(--verde-mid);
-  background: rgba(26,61,43,0.06);
-}
-
-/* Card de stats no hero */
-.hero-stats {
-  background: rgba(255,255,255,0.03);
-  border: 1px solid var(--borda);
-  border-radius: 4px;
-  padding: 2rem;
-  backdrop-filter: blur(8px);
-  
-}
-
-.hero-stats-label {
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.5);
-  margin-bottom: 1.5rem;
-}
-
-.stat-row {
-  padding: 1.25rem 0;
-  border-top: 1px solid var(--borda);
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-}
-.stat-row:first-of-type { border-top: none; padding-top: 0; }
-
-.stat-num {
-  font-family: var(--font-title);
-  font-size: 2.2rem;
-  font-weight: 800;
-  color: var(--branco);
-  letter-spacing: -0.02em;
-  line-height: 1;
-}
-.stat-desc {
-  font-size: 0.8rem;
-  color: var(--texto-leve);
-}
-
-/* =============================================
-   CREDIBILIDADE BAR
-============================================= */
-.cred-bar {
-  background: var(--verde);
-  border-top: 1px solid rgba(200,245,216,0.1);
-  border-bottom: 1px solid rgba(200,245,216,0.1);
-  padding: 1.5rem 0;
-  overflow: hidden;
-}
-
-.cred-list {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.cred-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 0.75rem 2.5rem;
-  border-right: 1px solid rgba(200,245,216,0.15);
-  text-align: center;
-  gap: 0.25rem;
-}
-.cred-item:last-child { border-right: none; }
-
-.cred-num {
-  font-family: var(--font-title);
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #ffffff;
-  line-height: 1;
-}
-.cred-label {
-  font-size: 0.68rem;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: rgba(200,245,216,0.55);
-}
-
-/* =============================================
+/* ==============================
    SOBRE
-============================================= */
-.sobre {
-  padding: 8rem 0;
-  background: #ffffff;
-}
+============================== */
+.sobre{padding:6rem 0;background:#fff}
+.sobre-inner{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
+.tag{font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--verde-mid);display:block;margin-bottom:1rem}
+.h2{font-family:var(--titulo);font-size:clamp(2rem,3.5vw,3rem);font-weight:800;line-height:1.05;letter-spacing:-.02em;color:var(--texto);margin-bottom:1.75rem}
+.sobre p{font-size:.95rem;line-height:1.9;color:var(--texto-mid);max-width:54ch}
+.sobre p+p{margin-top:1rem}
 
-.sobre-inner {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 6rem;
-  align-items: center;
-}
+.pilares{border-top:1px solid var(--borda)}
+.pilar{display:grid;grid-template-columns:40px 1fr;gap:1rem;padding:1.5rem 0;border-bottom:1px solid var(--borda);align-items:start}
+.pilar-n{font-family:var(--titulo);font-size:.7rem;font-weight:700;color:var(--bordeaux);padding-top:.2rem}
+.pilar-titulo{font-family:var(--titulo);font-size:.95rem;font-weight:700;color:var(--texto);margin-bottom:.3rem}
+.pilar-desc{font-size:.83rem;line-height:1.65;color:var(--texto-mid)}
 
-.sobre-tag {
-  display: inline-block;
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--verde-vivo);
-  margin-bottom: 1.25rem;
-}
-
-.sobre-title {
-  font-family: var(--font-title);
-  font-size: clamp(2.2rem, 4vw, 3.5rem);
-  font-weight: 800;
-  line-height: 1.05;
-  letter-spacing: -0.02em;
-  color: var(--texto);
-  margin-bottom: 2rem;
-}
-
-.sobre-text {
-  font-size: 1rem;
-  line-height: 1.85;
-  color: var(--texto-mid);
-  max-width: 50ch;
-}
-.sobre-text + .sobre-text { margin-top: 1rem; }
-
-/* Pilares */
-.pilares {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-}
-
-.pilar {
-  display: grid;
-  grid-template-columns: 48px 1fr;
-  gap: 1.25rem;
-  align-items: start;
-  padding: 1.5rem 0;
-  border-bottom: 1px solid var(--borda);
-  transition: background 0.25s;
-}
-.pilar:first-child { border-top: 1px solid var(--borda); }
-
-.pilar-num {
-  font-family: var(--font-title);
-  font-size: 0.7rem;
-  font-weight: 700;
-  color: var(--verde-vivo);
-  letter-spacing: 0.08em;
-  padding-top: 0.3rem;
-}
-
-.pilar-titulo {
-  font-family: var(--font-title);
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--texto);
-  margin-bottom: 0.35rem;
-}
-
-.pilar-desc {
-  font-size: 0.85rem;
-  line-height: 1.65;
-  color: var(--texto-leve);
-  max-width: 100%;
-}
-
-/* =============================================
+/* ==============================
    SERVIÇOS
-============================================= */
-.servicos {
-  padding: 8rem 0;
-  background: var(--cinza-claro);
+============================== */
+.servicos{padding:6rem 0;background:var(--cinza-bg)}
+.sec-hdr{margin-bottom:3.5rem}
+.servicos-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  border:1px solid var(--borda);
 }
+.serv{
+  padding:2.5rem;
+  border-right:1px solid var(--borda);
+  border-bottom:1px solid var(--borda);
+  transition:background .25s;
+}
+.serv:nth-child(3n){border-right:none}
+.serv:nth-child(n+4){border-bottom:none}
+.serv:hover{background:rgba(26,61,43,.04)}
+.serv-n{font-family:var(--titulo);font-size:2.5rem;font-weight:800;color:rgba(26,61,43,.08);line-height:1;margin-bottom:1.25rem}
+.serv-titulo{font-family:var(--titulo);font-size:1.05rem;font-weight:700;color:var(--texto);margin-bottom:.6rem}
+.serv-desc{font-size:.83rem;line-height:1.7;color:var(--texto-mid)}
 
-.section-header {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  margin-bottom: 4rem;
-  gap: 2rem;
-  flex-wrap: wrap;
+/* ==============================
+   EQUIPE
+============================== */
+.equipe{padding:6rem 0;background:#fff}
+.equipe-inner{display:grid;grid-template-columns:320px 1fr;gap:5rem;align-items:start}
+.foto-wrap{position:relative}
+.foto{
+  width:100%;aspect-ratio:3/4;
+  background:linear-gradient(145deg,#1a3d2b,#0d2018);
+  border:1px solid var(--borda);
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;
 }
+.foto-letra{font-family:var(--titulo);font-size:7rem;font-weight:800;color:rgba(255,255,255,.07)}
+.foto img{width:100%;height:100%;object-fit:cover}
+.socio-nome{font-family:var(--titulo);font-size:clamp(2rem,3.5vw,3rem);font-weight:800;line-height:1;letter-spacing:-.02em;color:var(--texto);margin-bottom:.4rem}
+.socio-cargo{font-size:.78rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--texto-leve);margin-bottom:1.75rem;display:block}
+.socio-bio{font-size:.92rem;line-height:1.9;color:var(--texto-mid);margin-bottom:2rem}
+.socio-bio+.socio-bio{margin-top:.75rem}
+.creds{border-top:1px solid var(--borda)}
+.cred-row{display:grid;grid-template-columns:100px 1fr;gap:1rem;padding:1rem 0;border-bottom:1px solid var(--borda);align-items:baseline}
+.cred-k{font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--texto-leve)}
+.cred-v{font-size:.85rem;color:var(--texto-mid)}
+.cred-v a{color:var(--verde-mid);transition:opacity .2s}
+.cred-v a:hover{opacity:.7}
 
-.section-tag {
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--verde-vivo);
-  display: block;
-  margin-bottom: 0.75rem;
-}
-
-.section-title {
-  font-family: var(--font-title);
-  font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 800;
-  line-height: 1.05;
-  letter-spacing: -0.02em;
-  color: var(--texto);
-}
-
-.servicos-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  border: 1px solid var(--borda);
-}
-
-.servico-item {
-  padding: 2.5rem;
-  border-right: 1px solid var(--borda);
-  border-bottom: 1px solid var(--borda);
-  position: relative;
-  overflow: hidden;
-  transition: background 0.3s;
-  cursor: default;
-}
-.servico-item:nth-child(3n) { border-right: none; }
-.servico-item:nth-child(n+4) { border-bottom: none; }
-
-.servico-item::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(45,122,79,0.08) 0%, transparent 60%);
-  opacity: 0;
-  transition: opacity 0.3s;
-}
-.servico-item:hover { background: rgba(26,61,43,0.04); }
-.servico-item:hover::after { opacity: 1; }
-
-.servico-num {
-  font-family: var(--font-title);
-  font-size: 3rem;
-  font-weight: 800;
-  color: rgba(26,61,43,0.08);
-  line-height: 1;
-  margin-bottom: 1.5rem;
-  transition: color 0.3s;
-}
-.servico-item:hover .servico-num { color: rgba(26,61,43,0.15); }
-
-.servico-titulo {
-  font-family: var(--font-title);
-  font-size: 1.15rem;
-  font-weight: 700;
-  color: var(--texto);
-  margin-bottom: 0.75rem;
-}
-
-.servico-desc {
-  font-size: 0.85rem;
-  line-height: 1.7;
-  color: var(--texto-leve);
-}
-
-/* =============================================
-   SÓCIO
-============================================= */
-.socio-section {
-  padding: 8rem 0;
-  background: #ffffff;
-}
-
-.socio-inner {
-  display: grid;
-  grid-template-columns: 360px 1fr;
-  gap: 6rem;
-  align-items: start;
-}
-
-/* Placeholder foto */
-.socio-foto-wrap {
-  position: relative;
-}
-.socio-foto-bg {
-  position: absolute;
-  inset: -20px;
-  background: radial-gradient(circle at center, rgba(45,122,79,0.2) 0%, transparent 70%);
-  border-radius: 50%;
-}
-.socio-foto {
-  width: 100%;
-  aspect-ratio: 3/4;
-  background: linear-gradient(145deg, #1a3d2b 0%, #0d2018 100%);
-  border: 1px solid var(--borda);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  overflow: hidden;
-}
-.socio-foto::after {
-  content: 'G';
-  font-family: var(--font-title);
-  font-size: 8rem;
-  font-weight: 800;
-  color: rgba(200,245,216,0.06);
-  position: absolute;
-}
-.socio-foto img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* Info do sócio */
-.socio-tag {
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--verde-vivo);
-  display: block;
-  margin-bottom: 1rem;
-}
-
-.socio-nome {
-  font-family: var(--font-title);
-  font-size: clamp(2.5rem, 4vw, 3.5rem);
-  font-weight: 800;
-  line-height: 1;
-  letter-spacing: -0.02em;
-  color: var(--texto);
-  margin-bottom: 0.5rem;
-}
-
-.socio-cargo {
-  font-size: 0.85rem;
-  color: var(--texto-leve);
-  margin-bottom: 2rem;
-  font-weight: 400;
-  letter-spacing: 0.04em;
-}
-
-.socio-bio {
-  font-size: 0.95rem;
-  line-height: 1.85;
-  color: var(--texto-mid);
-  max-width: 56ch;
-  margin-bottom: 2.5rem;
-}
-
-/* Tabela de credenciais */
-.socio-creds {
-  border-top: 1px solid var(--borda);
-}
-.cred-row {
-  display: grid;
-  grid-template-columns: 110px 1fr;
-  gap: 1rem;
-  padding: 1rem 0;
-  border-bottom: 1px solid var(--borda);
-  align-items: baseline;
-}
-.cred-key {
-  font-size: 0.68rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--texto-leve);
-}
-.cred-val {
-  font-size: 0.88rem;
-  color: var(--branco);
-  line-height: 1.5;
-}
-.cred-val a { color: var(--acento); transition: opacity 0.2s; }
-.cred-val a:hover { opacity: 0.7; }
-
-/* =============================================
+/* ==============================
    PROCESSOS
-============================================= */
-.processos {
-  padding: 8rem 0;
-  background: var(--cinza-claro);
+============================== */
+.processos{padding:6rem 0;background:var(--cinza-bg)}
+.proc-intro{display:grid;grid-template-columns:1fr 1fr;gap:3rem;margin-bottom:2.5rem;align-items:end}
+.proc-desc{font-size:.9rem;line-height:1.8;color:var(--texto-mid)}
+.proc-list{border-top:1px solid var(--borda)}
+.proc-item{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1.5rem 0;border-bottom:1px solid var(--borda);gap:2rem;
+  transition:padding-left .2s;
 }
+.proc-item:hover{padding-left:.75rem}
+.proc-nome{font-family:var(--titulo);font-size:1.05rem;font-weight:700;color:var(--texto);margin-bottom:.25rem}
+.proc-meta{font-size:.78rem;color:var(--texto-leve)}
+.badge{font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.3rem .7rem;flex-shrink:0}
+.badge-rj{background:rgba(26,61,43,.12);color:var(--verde);border:1px solid rgba(26,61,43,.2)}
+.badge-fa{background:rgba(139,26,26,.1);color:var(--bordeaux);border:1px solid rgba(139,26,26,.2)}
+.badge-re{background:rgba(80,80,160,.1);color:#505090;border:1px solid rgba(80,80,160,.2)}
 
-.processos-intro {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  margin-bottom: 3rem;
-  align-items: end;
-}
-
-.processos-desc {
-  font-size: 0.92rem;
-  line-height: 1.8;
-  color: var(--texto-mid);
-}
-
-.processo-list {
-  border-top: 1px solid var(--borda);
-  margin-bottom: 0;
-}
-
-.processo-item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1.5rem 0;
-  border-bottom: 1px solid var(--borda);
-  gap: 2rem;
-  transition: padding-left 0.25s;
-}
-.processo-item:hover { padding-left: 0.75rem; }
-
-.processo-nome {
-  font-family: var(--font-title);
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: var(--texto);
-  margin-bottom: 0.25rem;
-}
-.processo-meta {
-  font-size: 0.8rem;
-  color: var(--texto-leve);
-}
-
-.badge {
-  font-size: 0.65rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  padding: 0.3rem 0.75rem;
-  border-radius: 2px;
-  flex-shrink: 0;
-}
-.badge-rj { background: rgba(45,122,79,0.25); color: var(--acento); border: 1px solid rgba(45,122,79,0.4); }
-.badge-fa { background: rgba(180,40,40,0.2); color: #f5a0a0; border: 1px solid rgba(180,40,40,0.4); }
-.badge-re { background: rgba(100,100,180,0.2); color: #b0b0f5; border: 1px solid rgba(100,100,180,0.4); }
-
-/* =============================================
+/* ==============================
    PUBLICAÇÕES
-============================================= */
-.publicacoes {
-  padding: 8rem 0;
-  background: #ffffff;
-}
+============================== */
+.pubs{padding:6rem 0;background:#fff}
+.pub-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem}
+.pub{padding:2rem;border:1px solid var(--borda);display:flex;flex-direction:column;gap:.75rem;transition:border-color .2s,box-shadow .2s}
+.pub:hover{border-color:var(--verde-mid);box-shadow:0 4px 20px rgba(26,61,43,.08)}
+.pub-data{font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--verde-mid)}
+.pub-titulo{font-family:var(--titulo);font-size:1rem;font-weight:700;color:var(--texto);line-height:1.35;flex:1}
+.pub-titulo:hover{color:var(--verde-mid)}
+.pub-fonte{font-size:.75rem;color:var(--texto-leve);margin-top:auto}
 
-.pub-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-  margin-top: 3rem;
-}
-
-.pub-item {
-  padding: 2.5rem;
-  background: #ffffff;
-  border: 1px solid var(--borda);
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  transition: background 0.3s;
-}
-.pub-item:hover { background: rgba(26,61,43,0.04); }
-
-.pub-data {
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--verde-vivo);
-}
-.pub-titulo {
-  font-family: var(--font-title);
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: var(--texto);
-  line-height: 1.35;
-  flex: 1;
-}
-.pub-fonte {
-  font-size: 0.75rem;
-  color: var(--texto-leve);
-}
-
-/* =============================================
+/* ==============================
    CTA BANNER
-============================================= */
-.cta-banner {
-  padding: 5rem 0;
-  background: var(--verde);
-  border-top: 1px solid rgba(200,245,216,0.15);
-  border-bottom: 1px solid rgba(200,245,216,0.15);
-  position: relative;
-  overflow: hidden;
-}
-.cta-banner::before {
-  content: '';
-  position: absolute;
-  right: -200px;
-  top: -200px;
-  width: 600px;
-  height: 600px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(200,245,216,0.05) 0%, transparent 70%);
-}
-.cta-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 3rem;
-  flex-wrap: wrap;
-  position: relative;
-  z-index: 1;
-}
-.cta-titulo {
-  font-family: var(--font-title);
-  font-size: clamp(1.75rem, 3vw, 2.5rem);
-  font-weight: 800;
-  color: var(--branco);
-  max-width: 36ch;
-  line-height: 1.15;
-}
+============================== */
+.cta-banner{background:var(--bordeaux);padding:4rem 0}
+.cta-inner{display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap}
+.cta-titulo{font-family:var(--titulo);font-size:clamp(1.5rem,2.5vw,2.25rem);font-weight:800;color:#fff;max-width:40ch;line-height:1.15}
+.btn-white{background:#fff;color:var(--bordeaux)}
+.btn-white:hover{background:#f5f5f5;transform:translateY(-1px)}
 
-/* =============================================
+/* ==============================
    CONTATO
-============================================= */
-.contato {
-  padding: 8rem 0;
-  background: #ffffff;
-}
-
-.contato-inner {
-  display: grid;
-  grid-template-columns: 1fr 1.4fr;
-  gap: 6rem;
-  align-items: start;
-}
-
-.contato-info-titulo {
-  font-family: var(--font-title);
-  font-size: clamp(2rem, 3.5vw, 2.75rem);
-  font-weight: 800;
-  color: var(--texto);
-  line-height: 1.1;
-  margin-bottom: 1.5rem;
-}
-.contato-info-desc {
-  font-size: 0.92rem;
-  line-height: 1.8;
-  color: var(--texto-mid);
-  margin-bottom: 2.5rem;
-}
-
-.contato-dados {
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
-}
-.dado-item { display: flex; flex-direction: column; gap: 0.2rem; }
-.dado-label {
-  font-size: 0.65rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--texto-leve);
-}
-.dado-val {
-  font-size: 0.9rem;
-  color: var(--texto);
-}
+============================== */
+.contato{padding:6rem 0;background:var(--cinza-bg)}
+.contato-inner{display:grid;grid-template-columns:1fr 1.5fr;gap:5rem;align-items:start}
+.contato-titulo{font-family:var(--titulo);font-size:clamp(1.75rem,3vw,2.5rem);font-weight:800;color:var(--texto);margin-bottom:1.25rem;line-height:1.1}
+.contato-desc{font-size:.9rem;line-height:1.8;color:var(--texto-mid);margin-bottom:2rem}
+.dados{display:flex;flex-direction:column;gap:1.25rem}
+.dado{display:flex;flex-direction:column;gap:.2rem}
+.dado-k{font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--texto-leve)}
+.dado-v{font-size:.88rem;color:var(--texto-mid)}
 
 /* Formulário */
-.form { display: flex; flex-direction: column; gap: 1.25rem; }
-.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
-.form-group { display: flex; flex-direction: column; gap: 0.5rem; }
-.form-group label {
-  font-size: 0.75rem;
-  font-weight: 500;
-  letter-spacing: 0.04em;
-  color: var(--texto-leve);
+.form{display:flex;flex-direction:column;gap:1.25rem}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem}
+.fg{display:flex;flex-direction:column;gap:.4rem}
+.fg label{font-size:.75rem;font-weight:600;color:var(--texto-mid)}
+.fg input,.fg select,.fg textarea{
+  width:100%;padding:.8rem 1rem;
+  font-family:var(--corpo);font-size:.88rem;color:var(--texto);
+  background:#fff;border:1px solid var(--borda);
+  transition:border-color .2s,box-shadow .2s;
 }
-.form-group input,
-.form-group select,
-.form-group textarea {
-  background: #ffffff;
-  border: 1px solid var(--borda);
-  color: var(--texto);
-  font-family: var(--font-body);
-  font-size: 0.9rem;
-  padding: 0.875rem 1rem;
-  border-radius: 2px;
-  transition: border-color 0.2s;
-  appearance: none;
-}
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-  outline: none;
-  border-color: rgba(200,245,216,0.4);
-}
-.form-group input::placeholder,
-.form-group textarea::placeholder {
-  color: rgba(74,99,82,0.4);
-}
-.form-group textarea { min-height: 130px; resize: vertical; }
-.form-group select { cursor: pointer; }
-.form-group select option { background: #ffffff; }
-.field-error { font-size: 0.72rem; color: #f5a0a0; display: none; }
-.field-error.show { display: block; }
-input.err, select.err, textarea.err { border-color: rgba(245,160,160,0.5); }
-.form-status {
-  padding: 1rem;
-  font-size: 0.85rem;
-  display: none;
-  border-radius: 2px;
-}
-.form-status.ok { display: block; background: rgba(45,122,79,0.15); color: var(--acento); border: 1px solid rgba(45,122,79,0.3); }
-.form-status.err { display: block; background: rgba(180,40,40,0.15); color: #f5a0a0; border: 1px solid rgba(180,40,40,0.3); }
+.fg input:focus,.fg select:focus,.fg textarea:focus{outline:none;border-color:var(--verde-mid);box-shadow:0 0 0 3px rgba(36,92,62,.1)}
+.fg input.err,.fg select.err,.fg textarea.err{border-color:var(--bordeaux)}
+.fg textarea{min-height:130px;resize:vertical}
+.fg select{cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237a9585' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 1rem center;padding-right:2.5rem}
+.ferr{font-size:.7rem;color:var(--bordeaux);display:none}
+.ferr.show{display:block}
+.fstatus{font-size:.83rem;padding:.875rem 1rem;display:none}
+.fstatus.ok{display:block;background:rgba(26,61,43,.08);color:var(--verde);border-left:3px solid var(--verde)}
+.fstatus.err{display:block;background:rgba(139,26,26,.08);color:var(--bordeaux);border-left:3px solid var(--bordeaux)}
 
-/* =============================================
+/* ==============================
    FOOTER
-============================================= */
-.footer {
-  background: #f0f4f1;
-  border-top: 1px solid var(--borda);
-  padding: 4rem 0 2rem;
-}
+============================== */
+.footer{background:var(--verde);padding:4rem 0 2rem}
+.footer-inner{display:grid;grid-template-columns:2fr 1fr 1fr;gap:3rem;margin-bottom:3rem}
+.footer-brand-nome{font-family:var(--titulo);font-size:1.4rem;font-weight:800;color:#fff;margin-bottom:.75rem;letter-spacing:.03em}
+.footer-brand-desc{font-size:.8rem;line-height:1.7;color:rgba(255,255,255,.55);max-width:36ch;margin-bottom:1.75rem}
+.nombox{border-top:1px solid rgba(255,255,255,.1);padding-top:1.25rem}
+.nombox-label{font-size:.6rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.35);display:block;margin-bottom:.5rem}
+.nombox-txt{font-size:.72rem;line-height:1.65;color:rgba(255,255,255,.5)}
+.fcol h4{font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:1.25rem}
+.fcol ul{display:flex;flex-direction:column;gap:.7rem}
+.fcol a{font-size:.83rem;color:rgba(255,255,255,.6);transition:color .2s}
+.fcol a:hover{color:#fff}
+.footer-btm{border-top:1px solid rgba(255,255,255,.1);padding-top:1.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;font-size:.72rem;color:rgba(255,255,255,.35)}
+.footer-btm a{color:rgba(255,255,255,.35);transition:color .2s}
+.footer-btm a:hover{color:rgba(255,255,255,.65)}
+.footer-btm-links{display:flex;gap:1.5rem}
 
-.footer-inner {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
-  gap: 4rem;
-  margin-bottom: 3rem;
-}
+/* WhatsApp */
+.wa{position:fixed;bottom:1.75rem;right:1.75rem;z-index:90;width:52px;height:52px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(37,211,102,.3);transition:transform .2s,box-shadow .2s}
+.wa:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(37,211,102,.4)}
+.wa svg{width:26px;height:26px;fill:#fff}
 
-.footer-brand-nome {
-  font-family: var(--font-title);
-  font-size: 1.5rem;
-  font-weight: 800;
-  color: #ffffff;
-  margin-bottom: 0.75rem;
-  letter-spacing: 0.03em;
-}
-.footer-brand-desc {
-  font-size: 0.82rem;
-  line-height: 1.7;
-  color: rgba(255,255,255,0.6);
-  max-width: 38ch;
-  margin-bottom: 1.75rem;
-}
-
-/* Dados para nomeação */
-.nomeacao-box {
-  border-top: 1px solid var(--borda);
-  padding-top: 1.5rem;
-}
-.nomeacao-label {
-  font-size: 0.62rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.45);
-  margin-bottom: 0.6rem;
-  display: block;
-}
-.nomeacao-texto {
-  font-size: 0.75rem;
-  line-height: 1.65;
-  color: rgba(255,255,255,0.6);
-}
-
-.footer-col h4 {
-  font-size: 0.68rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.45);
-  margin-bottom: 1.25rem;
-}
-.footer-col ul { display: flex; flex-direction: column; gap: 0.7rem; }
-.footer-col a {
-  font-size: 0.85rem;
-  color: rgba(255,255,255,0.65);
-  transition: color 0.2s;
-}
-.footer-col a:hover { color: #ffffff; }
-
-.footer-bottom {
-  border-top: 1px solid var(--borda);
-  padding-top: 1.5rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 1rem;
-  font-size: 0.75rem;
-  color: rgba(74,99,82,0.4);
-}
-.footer-bottom a {
-  color: rgba(138,158,142,0.5);
-  transition: color 0.2s;
-}
-.footer-bottom a:hover { color: rgba(255,255,255,0.75); }
-
-/* =============================================
-   WHATSAPP
-============================================= */
-.wa-btn {
-  position: fixed;
-  bottom: 1.75rem;
-  right: 1.75rem;
-  z-index: 90;
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  background: #25D366;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 20px rgba(37,211,102,0.3);
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-.wa-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 30px rgba(37,211,102,0.4);
-}
-.wa-btn svg { width: 26px; height: 26px; fill: white; }
-
-/* =============================================
+/* ==============================
    RESPONSIVO
-============================================= */
-@media (max-width: 1024px) {
-  .hero-inner { grid-template-columns: 1fr; }
-  .hero-stats { display: none; }
-  .sobre-inner { grid-template-columns: 1fr; gap: 3rem; }
-  .servicos-grid { grid-template-columns: 1fr 1fr; }
-  .servico-item:nth-child(3n) { border-right: 1px solid var(--borda); }
-  .servico-item:nth-child(2n) { border-right: none; }
-  .servico-item:nth-child(n+5) { border-bottom: none; }
-  .socio-inner { grid-template-columns: 1fr; gap: 3rem; }
-  .socio-foto { aspect-ratio: 4/3; max-width: 400px; }
-  .processos-intro { grid-template-columns: 1fr; gap: 1.5rem; }
-  .pub-grid { grid-template-columns: 1fr 1fr; }
-  .pub-item:last-child { grid-column: span 2; }
-  .contato-inner { grid-template-columns: 1fr; gap: 3rem; }
-  .footer-inner { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
-  .nav { display: none; }
-  .menu-btn { display: flex; }
+============================== */
+@media(max-width:1024px){
+  .nav-links{display:none}
+  .hbtn{display:flex}
+  .hero-inner{grid-template-columns:1fr}
+  .hero-card{display:none}
+  .sobre-inner{grid-template-columns:1fr;gap:3rem}
+  .equipe-inner{grid-template-columns:1fr;gap:3rem}
+  .foto{aspect-ratio:4/3;max-width:380px}
+  .proc-intro{grid-template-columns:1fr;gap:1.5rem}
+  .contato-inner{grid-template-columns:1fr;gap:3rem}
+  .footer-inner{grid-template-columns:1fr 1fr;gap:2rem}
 }
-
-@media (max-width: 640px) {
-  .servicos-grid { grid-template-columns: 1fr; }
-  .servico-item { border-right: none !important; border-bottom: 1px solid var(--borda) !important; }
-  .servico-item:last-child { border-bottom: none !important; }
-  .pub-grid { grid-template-columns: 1fr; }
-  .pub-item:last-child { grid-column: span 1; }
-  .form-row { grid-template-columns: 1fr; }
-  .footer-inner { grid-template-columns: 1fr; }
-  .cred-list { flex-direction: column; align-items: center; }
-  .cred-item { border-right: none; border-bottom: 1px solid rgba(200,245,216,0.1); width: 100%; }
-  .cred-item:last-child { border-bottom: none; }
+@media(max-width:768px){
+  .servicos-grid{grid-template-columns:1fr 1fr}
+  .serv:nth-child(3n){border-right:1px solid var(--borda)}
+  .serv:nth-child(2n){border-right:none}
+  .serv:nth-child(n+5){border-bottom:none}
+  .pub-grid{grid-template-columns:1fr 1fr}
+  .cta-inner{flex-direction:column;align-items:flex-start}
+}
+@media(max-width:540px){
+  .servicos-grid{grid-template-columns:1fr}
+  .serv{border-right:none !important;border-bottom:1px solid var(--borda) !important}
+  .serv:last-child{border-bottom:none !important}
+  .pub-grid{grid-template-columns:1fr}
+  .form-row{grid-template-columns:1fr}
+  .footer-inner{grid-template-columns:1fr}
+  .cred-list{flex-direction:column;align-items:center}
+  .cred-item{border-right:none;border-bottom:1px solid rgba(255,255,255,.1);width:100%}
+  .cred-item:last-child{border-bottom:none}
 }
 </style>
 </head>
 <body>
 
 <!-- HEADER -->
-<header class="header" id="header">
-  <a href="/" class="logo" aria-label="Ascesa — início">
-    <img src="logo.png" alt="Ascesa">
-    <span class="logo-text">ASCESA</span>
+<header class="hdr" id="hdr">
+  <a href="#" class="logo" aria-label="Ascesa — início">
+    <img src="logo.png" alt="Ascesa Administração Judicial">
   </a>
-
-  <nav class="nav" aria-label="Principal">
+  <nav class="nav-links" aria-label="Principal">
     <a href="#sobre">Sobre</a>
     <a href="#servicos">Serviços</a>
     <a href="#equipe">Equipe</a>
     <a href="#processos">Processos</a>
     <a href="#publicacoes">Publicações</a>
-    <a href="#contato" class="nav-cta">Fale conosco</a>
+    <a href="#contato" class="cta">Fale conosco</a>
   </nav>
-
-  <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-label="Abrir menu">
+  <button class="hbtn" id="hbtn" aria-expanded="false" aria-label="Menu">
     <span></span><span></span><span></span>
   </button>
 </header>
 
-<nav class="mobile-nav" id="mobileNav" aria-label="Mobile">
+<nav class="mob-nav" id="mobnav" aria-label="Mobile">
   <a href="#sobre">Sobre</a>
   <a href="#servicos">Serviços</a>
   <a href="#equipe">Equipe</a>
@@ -1139,216 +420,112 @@ input.err, select.err, textarea.err { border-color: rgba(245,160,160,0.5); }
 </nav>
 
 <!-- HERO -->
-<section class="hero" id="inicio" aria-labelledby="hero-title">
-  <div class="hero-bg"></div>
-  <div class="hero-grid"></div>
-  <div class="hero-orb" aria-hidden="true"></div>
-
+<section class="hero" id="inicio">
   <div class="container">
     <div class="hero-inner">
-      <div class="hero-content">
+      <div>
         <span class="hero-badge">Administração Judicial · São Paulo</span>
-
-        <h1 class="hero-title" id="hero-title">
+        <h1 class="hero-title">
           Rigor técnico<br>
-          <span class="linha-verde">nos processos</span><br>
+          <em>nos processos</em><br>
           que importam
         </h1>
-
-        <p class="hero-sub">
-          Atuamos na administração judicial de recuperações e falências com exigência técnica, transparência integral e comprometimento permanente com o Judiciário.
-        </p>
-
-        <div class="hero-actions">
-          <a href="#processos" class="btn btn-primary">Ver processos</a>
-          <a href="#contato" class="btn btn-ghost">Fale conosco</a>
+        <p class="hero-desc">Atuamos na administração judicial de recuperações e falências com exigência técnica, transparência integral e comprometimento com o Judiciário.</p>
+        <div class="hero-btns">
+          <a href="#processos" class="btn btn-red">Ver processos</a>
+          <a href="#contato" class="btn btn-outline">Fale conosco</a>
         </div>
       </div>
-
-      <div class="hero-stats" aria-label="Indicadores">
-        <p class="hero-stats-label">Credenciais</p>
-        <div class="stat-row">
-          <span class="stat-num">+10 anos</span>
-          <span class="stat-desc">De experiência em insolvência empresarial</span>
+      <div class="hero-card" aria-label="Credenciais">
+        <p class="hero-card-label">Credenciais</p>
+        <div class="stat">
+          <span class="stat-n">+10 anos</span>
+          <span class="stat-d">De experiência em insolvência empresarial</span>
         </div>
-        <div class="stat-row">
-          <span class="stat-num">SP · RJ · PE</span>
-          <span class="stat-desc">Estados com processos conduzidos</span>
+        <div class="stat">
+          <span class="stat-n">SP · RJ · PE</span>
+          <span class="stat-d">Estados com processos conduzidos</span>
         </div>
-        <div class="stat-row">
-          <span class="stat-num">Lei 11.101</span>
-          <span class="stat-desc">Especialização exclusiva — sem dispersão de foco</span>
+        <div class="stat">
+          <span class="stat-n">Lei 11.101</span>
+          <span class="stat-d">Especialização exclusiva — sem dispersão de foco</span>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- BARRA CREDIBILIDADE -->
-<div class="cred-bar" aria-label="Diferenciais">
+<!-- CREDIBILIDADE -->
+<div class="cred">
   <div class="container">
     <ul class="cred-list">
-      <li class="cred-item">
-        <span class="cred-num">100%</span>
-        <span class="cred-label">Dedicação exclusiva</span>
-      </li>
-      <li class="cred-item">
-        <span class="cred-num">Lei 11.101</span>
-        <span class="cred-label">Especialização</span>
-      </li>
-      <li class="cred-item">
-        <span class="cred-num">TMA</span>
-        <span class="cred-label">Membro associado</span>
-      </li>
-      <li class="cred-item">
-        <span class="cred-num">CNJ</span>
-        <span class="cred-label">Relatórios padronizados</span>
-      </li>
+      <li class="cred-item"><span class="cred-n">100%</span><span class="cred-d">Dedicação exclusiva</span></li>
+      <li class="cred-item"><span class="cred-n">Lei 11.101</span><span class="cred-d">Especialização</span></li>
+      <li class="cred-item"><span class="cred-n">TMA</span><span class="cred-d">Membro associado</span></li>
+      <li class="cred-item"><span class="cred-n">CNJ</span><span class="cred-d">Relatórios padronizados</span></li>
     </ul>
   </div>
 </div>
 
 <!-- SOBRE -->
-<section class="sobre" id="sobre" aria-labelledby="sobre-title">
+<section class="sobre" id="sobre">
   <div class="container">
     <div class="sobre-inner">
       <div class="reveal">
-        <span class="sobre-tag">Sobre a Ascesa</span>
-        <h2 class="sobre-title" id="sobre-title">
-          Auxiliar o Judiciário<br>é nossa única função
-        </h2>
-        <p class="sobre-text">
-          A Ascesa foi criada com um propósito definido: atuar na administração judicial com o mesmo nível de exigência técnica que os processos de insolvência demandam. Não somos generalistas — atuamos exclusivamente na Lei 11.101/2005.
-        </p>
-        <p class="sobre-text">
-          Nosso papel é ser o elo entre o Judiciário, a empresa em crise e os credores, garantindo que cada etapa do processo seja conduzida com celeridade, rigor e transparência integral.
-        </p>
+        <span class="tag">Sobre a Ascesa</span>
+        <h2 class="h2">Auxiliar o Judiciário<br>é nossa única função</h2>
+        <p>A Ascesa foi criada com um propósito definido: atuar na administração judicial com o mesmo nível de exigência técnica que os processos de insolvência demandam. Não somos generalistas — atuamos exclusivamente na Lei 11.101/2005.</p>
+        <p>Nosso papel é ser o elo entre o Judiciário, a empresa em crise e os credores, garantindo que cada etapa do processo seja conduzida com celeridade, rigor e transparência integral.</p>
       </div>
-
-      <div class="pilares reveal reveal-delay-2">
-        <div class="pilar">
-          <span class="pilar-num">01</span>
-          <div>
-            <p class="pilar-titulo">Dedicação exclusiva</p>
-            <p class="pilar-desc">Atuamos apenas em processos de insolvência. Sem dispersão, sem conflito de interesses.</p>
-          </div>
-        </div>
-        <div class="pilar">
-          <span class="pilar-num">02</span>
-          <div>
-            <p class="pilar-titulo">Transparência ativa</p>
-            <p class="pilar-desc">Relatórios completos e comunicação direta com todas as partes do processo.</p>
-          </div>
-        </div>
-        <div class="pilar">
-          <span class="pilar-num">03</span>
-          <div>
-            <p class="pilar-titulo">Equipe multidisciplinar</p>
-            <p class="pilar-desc">Advogados, contadores e administradores integrados em cada processo.</p>
-          </div>
-        </div>
-        <div class="pilar">
-          <span class="pilar-num">04</span>
-          <div>
-            <p class="pilar-titulo">Conformidade com o CNJ</p>
-            <p class="pilar-desc">Relatórios padronizados conforme as diretrizes do Conselho Nacional de Justiça.</p>
-          </div>
-        </div>
+      <div class="pilares reveal d2">
+        <div class="pilar"><span class="pilar-n">01</span><div><p class="pilar-titulo">Dedicação exclusiva</p><p class="pilar-desc">Atuamos apenas em processos de insolvência. Sem dispersão, sem conflito de interesses.</p></div></div>
+        <div class="pilar"><span class="pilar-n">02</span><div><p class="pilar-titulo">Transparência ativa</p><p class="pilar-desc">Relatórios completos e comunicação direta com todas as partes do processo.</p></div></div>
+        <div class="pilar"><span class="pilar-n">03</span><div><p class="pilar-titulo">Equipe multidisciplinar</p><p class="pilar-desc">Advogados, contadores e administradores integrados em cada processo.</p></div></div>
+        <div class="pilar"><span class="pilar-n">04</span><div><p class="pilar-titulo">Conformidade com o CNJ</p><p class="pilar-desc">Relatórios padronizados conforme as diretrizes do Conselho Nacional de Justiça.</p></div></div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- SERVIÇOS -->
-<section class="servicos" id="servicos" aria-labelledby="servicos-title">
+<section class="servicos" id="servicos">
   <div class="container">
-    <div class="section-header reveal">
-      <div>
-        <span class="section-tag">Áreas de atuação</span>
-        <h2 class="section-title" id="servicos-title">O que fazemos</h2>
-      </div>
+    <div class="sec-hdr reveal">
+      <span class="tag">Áreas de atuação</span>
+      <h2 class="h2">O que fazemos</h2>
     </div>
-
-    <ul class="servicos-grid reveal reveal-delay-1">
-      <li class="servico-item">
-        <div class="servico-num" aria-hidden="true">I</div>
-        <h3 class="servico-titulo">Recuperação Judicial</h3>
-        <p class="servico-desc">Gestão completa do processo recuperacional: relatórios, assembleias, fiscalização do plano e interlocução com credores.</p>
-      </li>
-      <li class="servico-item">
-        <div class="servico-num" aria-hidden="true">II</div>
-        <h3 class="servico-titulo">Falências</h3>
-        <p class="servico-desc">Arrecadação, guarda e avaliação de bens; apuração do passivo; prestações de contas ao Juízo e credores.</p>
-      </li>
-      <li class="servico-item">
-        <div class="servico-num" aria-hidden="true">III</div>
-        <h3 class="servico-titulo">Recuperação Extrajudicial</h3>
-        <p class="servico-desc">Suporte na negociação e na homologação do plano extrajudicial, com acompanhamento integral do processo.</p>
-      </li>
-      <li class="servico-item">
-        <div class="servico-num" aria-hidden="true">IV</div>
-        <h3 class="servico-titulo">Assembleia de Credores</h3>
-        <p class="servico-desc">Organização, convocação e condução de AGCs — presenciais e virtuais — com apuração transparente de votos.</p>
-      </li>
-      <li class="servico-item">
-        <div class="servico-num" aria-hidden="true">V</div>
-        <h3 class="servico-titulo">Habilitações e Divergências</h3>
-        <p class="servico-desc">Análise técnica dos créditos, elaboração do quadro geral e tratamento das impugnações perante o Juízo.</p>
-      </li>
-      <li class="servico-item">
-        <div class="servico-num" aria-hidden="true">VI</div>
-        <h3 class="servico-titulo">Outras Nomeações</h3>
-        <p class="servico-desc">Inventariante judicial, dissolução de sociedade, penhora de faturamento e insolvência civil.</p>
-      </li>
+    <ul class="servicos-grid reveal d1">
+      <li class="serv"><div class="serv-n">I</div><h3 class="serv-titulo">Recuperação Judicial</h3><p class="serv-desc">Gestão completa do processo recuperacional: relatórios, assembleias, fiscalização do plano e interlocução com credores.</p></li>
+      <li class="serv"><div class="serv-n">II</div><h3 class="serv-titulo">Falências</h3><p class="serv-desc">Arrecadação, guarda e avaliação de bens; apuração do passivo; prestações de contas ao Juízo e credores.</p></li>
+      <li class="serv"><div class="serv-n">III</div><h3 class="serv-titulo">Recuperação Extrajudicial</h3><p class="serv-desc">Suporte na negociação e na homologação do plano extrajudicial, com acompanhamento integral do processo.</p></li>
+      <li class="serv"><div class="serv-n">IV</div><h3 class="serv-titulo">Assembleia de Credores</h3><p class="serv-desc">Organização, convocação e condução de AGCs — presenciais e virtuais — com apuração transparente de votos.</p></li>
+      <li class="serv"><div class="serv-n">V</div><h3 class="serv-titulo">Habilitações e Divergências</h3><p class="serv-desc">Análise técnica dos créditos, elaboração do quadro geral e tratamento das impugnações perante o Juízo.</p></li>
+      <li class="serv"><div class="serv-n">VI</div><h3 class="serv-titulo">Outras Nomeações</h3><p class="serv-desc">Inventariante judicial, dissolução de sociedade, penhora de faturamento e insolvência civil.</p></li>
     </ul>
   </div>
 </section>
 
 <!-- EQUIPE -->
-<section class="socio-section" id="equipe" aria-labelledby="socio-nome">
+<section class="equipe" id="equipe">
   <div class="container">
-    <div class="socio-inner">
-      <div class="socio-foto-wrap reveal">
-        <div class="socio-foto-bg" aria-hidden="true"></div>
-        <div class="socio-foto" role="img" aria-label="Gabriel Battagin Martins">
-          <!-- Substituir pela tag img quando tiver foto: -->
-          <!-- <img src="gabriel.jpg" alt="Gabriel Battagin Martins"> -->
+    <div class="equipe-inner">
+      <div class="foto-wrap reveal">
+        <div class="foto" role="img" aria-label="Gabriel Battagin Martins">
+          <span class="foto-letra" aria-hidden="true">G</span>
         </div>
       </div>
-
-      <div class="reveal reveal-delay-2">
-        <span class="socio-tag">Quem responde pelo processo</span>
-        <h2 class="socio-nome" id="socio-nome">Gabriel Battagin<br>Martins</h2>
-        <p class="socio-cargo">Sócio Fundador · Administrador Judicial</p>
-
-        <p class="socio-bio">
-          Advogado com atuação exclusiva no direito da insolvência empresarial, com trajetória construída em processos de recuperação judicial e falência de médio e grande porte nos estados de São Paulo, Rio de Janeiro e Pernambuco. Ao longo de mais de uma década, acumulou visão técnica e operacional sobre todas as fases do procedimento recuperacional.
-        </p>
-        <p class="socio-bio">
-          Fundou a Ascesa com o propósito de oferecer ao Judiciário uma administração judicial especializada, ágil e com transparência integral — sem dispersão de foco em outras áreas do direito.
-        </p>
-
-        <dl class="socio-creds">
-          <div class="cred-row">
-            <dt class="cred-key">OAB</dt>
-            <dd class="cred-val">SP 174.874</dd>
-          </div>
-          <div class="cred-row">
-            <dt class="cred-key">Formação</dt>
-            <dd class="cred-val">Direito · Pós-graduação em Direito Empresarial</dd>
-          </div>
-          <div class="cred-row">
-            <dt class="cred-key">Certificação</dt>
-            <dd class="cred-val">Administrador Judicial — TMA Brasil · IBAJUD</dd>
-          </div>
-          <div class="cred-row">
-            <dt class="cred-key">Associações</dt>
-            <dd class="cred-val">TMA Brasil · IBAJUD · Comissão de Falências OAB/SP</dd>
-          </div>
-          <div class="cred-row">
-            <dt class="cred-key">E-mail</dt>
-            <dd class="cred-val"><a href="mailto:gabriel@ascesa.adv.br">gabriel@ascesa.adv.br</a></dd>
-          </div>
+      <div class="reveal d2">
+        <span class="tag">Quem responde pelo processo</span>
+        <h2 class="socio-nome">Gabriel Battagin<br>Martins</h2>
+        <span class="socio-cargo">Sócio Fundador · Administrador Judicial</span>
+        <p class="socio-bio">Advogado com atuação exclusiva no direito da insolvência empresarial, com trajetória construída em processos de recuperação judicial e falência de médio e grande porte nos estados de São Paulo, Rio de Janeiro e Pernambuco.</p>
+        <p class="socio-bio">Fundou a Ascesa com o propósito de oferecer ao Judiciário uma administração judicial especializada, ágil e com transparência integral — sem dispersão de foco em outras áreas do direito.</p>
+        <dl class="creds">
+          <div class="cred-row"><dt class="cred-k">OAB</dt><dd class="cred-v">SP 174.874</dd></div>
+          <div class="cred-row"><dt class="cred-k">Formação</dt><dd class="cred-v">Direito · Pós-graduação em Direito Empresarial</dd></div>
+          <div class="cred-row"><dt class="cred-k">Certificação</dt><dd class="cred-v">Administrador Judicial — TMA Brasil · IBAJUD</dd></div>
+          <div class="cred-row"><dt class="cred-k">Associações</dt><dd class="cred-v">TMA Brasil · IBAJUD · Comissão de Falências OAB/SP</dd></div>
+          <div class="cred-row"><dt class="cred-k">E-mail</dt><dd class="cred-v"><a href="mailto:gabriel@ascesa.adv.br">gabriel@ascesa.adv.br</a></dd></div>
         </dl>
       </div>
     </div>
@@ -1356,77 +533,58 @@ input.err, select.err, textarea.err { border-color: rgba(245,160,160,0.5); }
 </section>
 
 <!-- PROCESSOS -->
-<section class="processos" id="processos" aria-labelledby="processos-title">
+<section class="processos" id="processos">
   <div class="container">
-    <div class="processos-intro reveal">
+    <div class="proc-intro reveal">
       <div>
-        <span class="section-tag">Processos em andamento</span>
-        <h2 class="section-title" id="processos-title">Transparência<br>em cada etapa</h2>
+        <span class="tag">Processos em andamento</span>
+        <h2 class="h2">Transparência<br>em cada etapa</h2>
       </div>
-      <p class="processos-desc">
-        Disponibilizamos informações atualizadas sobre todos os processos sob nossa administração. Credores e partes interessadas podem acompanhar documentos, relatórios e prazos.
-      </p>
+      <p class="proc-desc">Disponibilizamos informações atualizadas sobre todos os processos sob nossa administração. Credores e partes interessadas podem acompanhar documentos, relatórios e prazos.</p>
     </div>
-
-    <ul class="processo-list reveal reveal-delay-1">
-      <li class="processo-item">
-        <div>
-          <p class="processo-nome">Construtora Terraço S/A e outras</p>
-          <p class="processo-meta">Passivo: R$ 48,3 milhões · 2ª Vara de Falências e Recuperações — São Paulo/SP</p>
-        </div>
+    <ul class="proc-list reveal d1">
+      <li class="proc-item">
+        <div><p class="proc-nome">Construtora Terraço S/A e outras</p><p class="proc-meta">Passivo: R$ 48,3 milhões · 2ª Vara de Falências e Recuperações — São Paulo/SP</p></div>
         <span class="badge badge-rj">RJ</span>
       </li>
-      <li class="processo-item">
-        <div>
-          <p class="processo-nome">Grupo Venturo Transportes Ltda</p>
-          <p class="processo-meta">Passivo: R$ 22,7 milhões · 1ª Vara Cível — Campinas/SP</p>
-        </div>
+      <li class="proc-item">
+        <div><p class="proc-nome">Grupo Venturo Transportes Ltda</p><p class="proc-meta">Passivo: R$ 22,7 milhões · 1ª Vara Cível — Campinas/SP</p></div>
         <span class="badge badge-fa">Falência</span>
       </li>
-      <li class="processo-item">
-        <div>
-          <p class="processo-nome">Indústria Metalúrgica Fortuna Ltda</p>
-          <p class="processo-meta">Passivo: R$ 31,1 milhões · 3ª Vara Empresarial — São Paulo/SP</p>
-        </div>
+      <li class="proc-item">
+        <div><p class="proc-nome">Indústria Metalúrgica Fortuna Ltda</p><p class="proc-meta">Passivo: R$ 31,1 milhões · 3ª Vara Empresarial — São Paulo/SP</p></div>
         <span class="badge badge-rj">RJ</span>
       </li>
-      <li class="processo-item">
-        <div>
-          <p class="processo-nome">Distribuidora Alvora Alimentos S/A</p>
-          <p class="processo-meta">Passivo: R$ 15,9 milhões · 1ª Vara de Falências — Santos/SP</p>
-        </div>
+      <li class="proc-item">
+        <div><p class="proc-nome">Distribuidora Alvora Alimentos S/A</p><p class="proc-meta">Passivo: R$ 15,9 milhões · 1ª Vara de Falências — Santos/SP</p></div>
         <span class="badge badge-re">RE</span>
       </li>
     </ul>
-
-    <div style="margin-top: 2.5rem;" class="reveal">
-      <a href="#contato" class="btn btn-ghost">Solicitar acesso a documentos</a>
+    <div style="margin-top:2rem" class="reveal">
+      <a href="#contato" class="btn btn-dark">Solicitar acesso a documentos</a>
     </div>
   </div>
 </section>
 
 <!-- PUBLICAÇÕES -->
-<section class="publicacoes" id="publicacoes" aria-labelledby="pub-title">
+<section class="pubs" id="publicacoes">
   <div class="container">
-    <div class="section-header reveal">
-      <div>
-        <span class="section-tag">Publicações e Jurisprudência</span>
-        <h2 class="section-title" id="pub-title">Produção técnica</h2>
-      </div>
+    <div class="sec-hdr reveal">
+      <span class="tag">Publicações e Jurisprudência</span>
+      <h2 class="h2">Produção técnica</h2>
     </div>
-
-    <ul class="pub-grid reveal reveal-delay-1">
-      <li class="pub-item">
+    <ul class="pub-grid reveal d1">
+      <li class="pub">
         <time class="pub-data" datetime="2026-08">Ago 2026</time>
         <a href="#" class="pub-titulo">Impactos do Provimento CNJ 231/2026 sobre a remuneração dos administradores judiciais</a>
         <span class="pub-fonte">Migalhas</span>
       </li>
-      <li class="pub-item">
+      <li class="pub">
         <time class="pub-data" datetime="2026-07">Jul 2026</time>
         <a href="#" class="pub-titulo">Lei 15.472/2026: honorários advocatícios com prioridade na falência</a>
         <span class="pub-fonte">Conjur</span>
       </li>
-      <li class="pub-item">
+      <li class="pub">
         <time class="pub-data" datetime="2026-05">Mai 2026</time>
         <a href="#" class="pub-titulo">Recuperação extrajudicial e credores não aderentes: limites da força vinculante do plano</a>
         <span class="pub-fonte">Ascesa</span>
@@ -1435,68 +593,41 @@ input.err, select.err, textarea.err { border-color: rgba(245,160,160,0.5); }
   </div>
 </section>
 
-<!-- CTA BANNER -->
+<!-- CTA -->
 <div class="cta-banner">
   <div class="container">
     <div class="cta-inner reveal">
       <h2 class="cta-titulo">Precisa de um administrador judicial de confiança?</h2>
-      <a href="#contato" class="btn btn-primary">Fale com a Ascesa</a>
+      <a href="#contato" class="btn btn-white">Fale com a Ascesa</a>
     </div>
   </div>
 </div>
 
 <!-- CONTATO -->
-<section class="contato" id="contato" aria-labelledby="contato-title">
+<section class="contato" id="contato">
   <div class="container">
     <div class="contato-inner">
       <div class="reveal">
-        <span class="section-tag">Contato</span>
-        <h2 class="contato-info-titulo" id="contato-title">Entre em<br>contato</h2>
-        <p class="contato-info-desc">
-          Para consultas sobre nomeações, processos em andamento ou informações institucionais, utilize o formulário ou entre em contato diretamente.
-        </p>
-        <dl class="contato-dados">
-          <div class="dado-item">
-            <dt class="dado-label">E-mail</dt>
-            <dd class="dado-val"><a href="mailto:contato@ascesa.adv.br">contato@ascesa.adv.br</a></dd>
-          </div>
-          <div class="dado-item">
-            <dt class="dado-label">Telefone / WhatsApp</dt>
-            <dd class="dado-val"><a href="tel:+5511000000000">(11) XXXXX-XXXX</a></dd>
-          </div>
-          <div class="dado-item">
-            <dt class="dado-label">Endereço</dt>
-            <dd class="dado-val">[Endereço] — São Paulo/SP</dd>
-          </div>
-          <div class="dado-item">
-            <dt class="dado-label">Horário</dt>
-            <dd class="dado-val">Segunda a sexta, 9h às 18h</dd>
-          </div>
+        <span class="tag">Contato</span>
+        <h2 class="contato-titulo">Entre em<br>contato</h2>
+        <p class="contato-desc">Para consultas sobre nomeações, processos em andamento ou informações institucionais, utilize o formulário ou entre em contato diretamente.</p>
+        <dl class="dados">
+          <div class="dado"><dt class="dado-k">E-mail</dt><dd class="dado-v">contato@ascesa.adv.br</dd></div>
+          <div class="dado"><dt class="dado-k">Telefone / WhatsApp</dt><dd class="dado-v">(11) XXXXX-XXXX</dd></div>
+          <div class="dado"><dt class="dado-k">Endereço</dt><dd class="dado-v">[Endereço] — São Paulo/SP</dd></div>
+          <div class="dado"><dt class="dado-k">Horário</dt><dd class="dado-v">Segunda a sexta, 9h às 18h</dd></div>
         </dl>
       </div>
-
-      <form class="form reveal reveal-delay-2" action="https://formspree.io/f/XXXXXXXX" method="POST" novalidate aria-label="Formulário de contato">
+      <form class="form reveal d2" id="form" action="https://formspree.io/f/XXXXXXXX" method="POST" novalidate>
         <div class="form-row">
-          <div class="form-group">
-            <label for="nome">Nome completo</label>
-            <input type="text" id="nome" name="nome" required autocomplete="name" aria-describedby="nome-err">
-            <span class="field-error" id="nome-err" data-field="nome">Informe seu nome.</span>
-          </div>
-          <div class="form-group">
-            <label for="email">E-mail</label>
-            <input type="email" id="email" name="email" required autocomplete="email" aria-describedby="email-err">
-            <span class="field-error" id="email-err" data-field="email">E-mail inválido.</span>
-          </div>
+          <div class="fg"><label for="nome">Nome completo</label><input type="text" id="nome" name="nome" required><span class="ferr" id="enome">Informe seu nome.</span></div>
+          <div class="fg"><label for="email">E-mail</label><input type="email" id="email" name="email" required><span class="ferr" id="eemail">E-mail inválido.</span></div>
         </div>
         <div class="form-row">
-          <div class="form-group">
-            <label for="tel">Telefone</label>
-            <input type="tel" id="tel" name="telefone" required placeholder="(XX) XXXXX-XXXX" autocomplete="tel" aria-describedby="tel-err">
-            <span class="field-error" id="tel-err" data-field="tel">Informe um telefone.</span>
-          </div>
-          <div class="form-group">
+          <div class="fg"><label for="tel">Telefone</label><input type="tel" id="tel" name="telefone" required placeholder="(XX) XXXXX-XXXX"><span class="ferr" id="etel">Informe um telefone.</span></div>
+          <div class="fg">
             <label for="assunto">Assunto</label>
-            <select id="assunto" name="assunto" required aria-describedby="assunto-err">
+            <select id="assunto" name="assunto" required>
               <option value="">Selecione…</option>
               <option value="recuperacao-judicial">Recuperação Judicial</option>
               <option value="falencia">Falência</option>
@@ -1505,18 +636,12 @@ input.err, select.err, textarea.err { border-color: rgba(245,160,160,0.5); }
               <option value="assembleia">Assembleia de Credores</option>
               <option value="outro">Outro</option>
             </select>
-            <span class="field-error" id="assunto-err" data-field="assunto">Selecione um assunto.</span>
+            <span class="ferr" id="eassunto">Selecione um assunto.</span>
           </div>
         </div>
-        <div class="form-group">
-          <label for="mensagem">Mensagem</label>
-          <textarea id="mensagem" name="mensagem" required placeholder="Descreva sua consulta…" aria-describedby="msg-err"></textarea>
-          <span class="field-error" id="msg-err" data-field="mensagem">Escreva uma mensagem.</span>
-        </div>
-        <div>
-          <button type="submit" class="btn btn-primary" id="submitBtn">Enviar mensagem</button>
-        </div>
-        <div class="form-status" id="formStatus" role="alert" aria-live="polite"></div>
+        <div class="fg"><label for="msg">Mensagem</label><textarea id="msg" name="mensagem" required placeholder="Descreva sua consulta…"></textarea><span class="ferr" id="emsg">Escreva uma mensagem.</span></div>
+        <div><button type="submit" class="btn btn-red" id="sbtn">Enviar mensagem</button></div>
+        <div class="fstatus" id="fstatus" role="alert" aria-live="polite"></div>
       </form>
     </div>
   </div>
@@ -1526,18 +651,15 @@ input.err, select.err, textarea.err { border-color: rgba(245,160,160,0.5); }
 <footer class="footer">
   <div class="container">
     <div class="footer-inner">
-      <div class="footer-brand">
+      <div>
         <p class="footer-brand-nome">ASCESA</p>
         <p class="footer-brand-desc">Escritório especializado em administração judicial, recuperação judicial e falências. Atuação técnica com transparência integral.</p>
-        <div class="nomeacao-box">
-          <span class="nomeacao-label">Dados para nomeação</span>
-          <p class="nomeacao-texto">
-            ASCESA ADMINISTRAÇÃO JUDICIAL LTDA., CNPJ n.º [XX.XXX.XXX/0001-XX], com sede à [Endereço completo], São Paulo/SP, representada por Gabriel Battagin Martins, advogado inscrito na OAB/SP n.º 174.874.
-          </p>
+        <div class="nombox">
+          <span class="nombox-label">Dados para nomeação</span>
+          <p class="nombox-txt">ASCESA ADMINISTRAÇÃO JUDICIAL LTDA., CNPJ n.º [XX.XXX.XXX/0001-XX], com sede à [Endereço], São Paulo/SP, representada por Gabriel Battagin Martins, OAB/SP 174.874.</p>
         </div>
       </div>
-
-      <div class="footer-col">
+      <div class="fcol">
         <h4>Serviços</h4>
         <ul>
           <li><a href="#servicos">Recuperação Judicial</a></li>
@@ -1547,8 +669,7 @@ input.err, select.err, textarea.err { border-color: rgba(245,160,160,0.5); }
           <li><a href="#servicos">Habilitações</a></li>
         </ul>
       </div>
-
-      <div class="footer-col">
+      <div class="fcol">
         <h4>Institucional</h4>
         <ul>
           <li><a href="#sobre">Sobre</a></li>
@@ -1559,10 +680,9 @@ input.err, select.err, textarea.err { border-color: rgba(245,160,160,0.5); }
         </ul>
       </div>
     </div>
-
-    <div class="footer-bottom">
+    <div class="footer-btm">
       <span>© <span id="ano"></span> Ascesa Administração Judicial. Todos os direitos reservados.</span>
-      <div style="display:flex;gap:1.5rem;">
+      <div class="footer-btm-links">
         <a href="#">Política de Privacidade</a>
         <a href="#">LGPD</a>
       </div>
@@ -1571,135 +691,115 @@ input.err, select.err, textarea.err { border-color: rgba(245,160,160,0.5); }
 </footer>
 
 <!-- WhatsApp -->
-<a href="https://wa.me/5511000000000" class="wa-btn" target="_blank" rel="noopener" aria-label="WhatsApp">
+<a href="https://wa.me/5511000000000" class="wa" target="_blank" rel="noopener" aria-label="WhatsApp">
   <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
 
 <script>
 'use strict';
-
-// Ano no footer
+// Ano
 document.getElementById('ano').textContent = new Date().getFullYear();
 
 // Header scroll
-const header = document.getElementById('header');
-window.addEventListener('scroll', () => {
-  header.classList.toggle('scrolled', window.scrollY > 40);
-}, { passive: true });
+const hdr = document.getElementById('hdr');
+window.addEventListener('scroll', () => hdr.classList.toggle('scrolled', window.scrollY > 30), {passive:true});
 
 // Menu mobile
-const menuBtn = document.getElementById('menuBtn');
-const mobileNav = document.getElementById('mobileNav');
-menuBtn.addEventListener('click', () => {
-  const open = menuBtn.classList.toggle('open');
-  mobileNav.classList.toggle('open', open);
-  menuBtn.setAttribute('aria-expanded', open);
+const hbtn = document.getElementById('hbtn');
+const mobnav = document.getElementById('mobnav');
+hbtn.addEventListener('click', () => {
+  const open = hbtn.classList.toggle('open');
+  mobnav.classList.toggle('open', open);
+  hbtn.setAttribute('aria-expanded', open);
   document.body.style.overflow = open ? 'hidden' : '';
 });
-mobileNav.querySelectorAll('a').forEach(a => {
-  a.addEventListener('click', () => {
-    menuBtn.classList.remove('open');
-    mobileNav.classList.remove('open');
-    menuBtn.setAttribute('aria-expanded', 'false');
-    document.body.style.overflow = '';
-  });
-});
+mobnav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+  hbtn.classList.remove('open');
+  mobnav.classList.remove('open');
+  hbtn.setAttribute('aria-expanded', 'false');
+  document.body.style.overflow = '';
+}));
 document.addEventListener('keydown', e => {
-  if (e.key === 'Escape' && mobileNav.classList.contains('open')) {
-    menuBtn.classList.remove('open');
-    mobileNav.classList.remove('open');
-    menuBtn.setAttribute('aria-expanded', 'false');
+  if (e.key === 'Escape' && mobnav.classList.contains('open')) {
+    hbtn.classList.remove('open');
+    mobnav.classList.remove('open');
+    hbtn.setAttribute('aria-expanded', 'false');
     document.body.style.overflow = '';
   }
 });
 
 // Scroll reveal
-const revealEls = document.querySelectorAll('.reveal');
-if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+if (!window.matchMedia('(prefers-reduced-motion:reduce)').matches) {
   const obs = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-        obs.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-  revealEls.forEach(el => obs.observe(el));
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); obs.unobserve(e.target); } });
+  }, {threshold:.1, rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 } else {
-  revealEls.forEach(el => el.classList.add('visible'));
+  document.querySelectorAll('.reveal').forEach(el => el.classList.add('on'));
 }
 
-// Máscara telefone
-const telInput = document.getElementById('tel');
-if (telInput) {
-  telInput.addEventListener('input', () => {
-    let v = telInput.value.replace(/\D/g, '').slice(0, 11);
-    if (v.length > 10) v = v.replace(/^(\d{2})(\d{5})(\d{4})$/, '($1) $2-$3');
-    else if (v.length > 6) v = v.replace(/^(\d{2})(\d{4})(\d*)$/, '($1) $2-$3');
-    else if (v.length > 2) v = v.replace(/^(\d{2})(\d*)$/, '($1) $2');
-    telInput.value = v;
-  });
-}
+// Tel mask
+const tel = document.getElementById('tel');
+if (tel) tel.addEventListener('input', () => {
+  let v = tel.value.replace(/\D/g,'').slice(0,11);
+  if (v.length > 10) v = v.replace(/^(\d{2})(\d{5})(\d{4})$/,'($1) $2-$3');
+  else if (v.length > 6) v = v.replace(/^(\d{2})(\d{4})(\d*)$/,'($1) $2-$3');
+  else if (v.length > 2) v = v.replace(/^(\d{2})(\d*)$/,'($1) $2');
+  tel.value = v;
+});
 
 // Formulário
-const form = document.querySelector('.form');
+const form = document.getElementById('form');
 if (form) {
   const rules = {
-    nome:     v => v.trim().length >= 2,
-    email:    v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()),
-    tel:      v => v.replace(/\D/g, '').length >= 10,
-    assunto:  v => v !== '',
-    mensagem: v => v.trim().length >= 5,
+    nome:    v => v.trim().length >= 2,
+    email:   v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()),
+    tel:     v => v.replace(/\D/g,'').length >= 10,
+    assunto: v => v !== '',
+    msg:     v => v.trim().length >= 5,
   };
+  const ids = {nome:'enome',email:'eemail',tel:'etel',assunto:'eassunto',msg:'emsg'};
 
-  const validate = name => {
-    const input = form.querySelector(`[name="${name}"]`) || form.querySelector(`#${name}`);
-    const errEl = form.querySelector(`[data-field="${name}"]`);
-    if (!input || !rules[name]) return true;
-    const ok = rules[name](input.value);
-    input.classList.toggle('err', !ok);
-    if (errEl) errEl.classList.toggle('show', !ok);
+  const check = id => {
+    const el = document.getElementById(id);
+    const err = document.getElementById(ids[id]);
+    if (!el || !rules[id]) return true;
+    const ok = rules[id](el.value);
+    el.classList.toggle('err', !ok);
+    if (err) err.classList.toggle('show', !ok);
     return ok;
   };
 
-  const fieldMap = { nome: 'nome', email: 'email', telefone: 'tel', assunto: 'assunto', mensagem: 'mensagem' };
-  Object.entries(fieldMap).forEach(([name, id]) => {
-    const el = form.querySelector(`[name="${name}"]`) || form.querySelector(`#${id}`);
+  Object.keys(rules).forEach(id => {
+    const el = document.getElementById(id);
     if (el) {
-      el.addEventListener('blur', () => validate(id));
-      el.addEventListener('input', () => { if (el.classList.contains('err')) validate(id); });
+      el.addEventListener('blur', () => check(id));
+      el.addEventListener('input', () => { if (el.classList.contains('err')) check(id); });
     }
   });
 
-  const btn = document.getElementById('submitBtn');
-  const status = document.getElementById('formStatus');
+  const sbtn = document.getElementById('sbtn');
+  const fstatus = document.getElementById('fstatus');
 
   form.addEventListener('submit', async e => {
     e.preventDefault();
-    const allOk = Object.keys(rules).map(validate).every(Boolean);
-    if (!allOk) return;
-
-    btn.disabled = true;
-    btn.textContent = 'Enviando…';
-    status.className = 'form-status';
-
+    if (!Object.keys(rules).map(check).every(Boolean)) return;
+    sbtn.disabled = true;
+    sbtn.textContent = 'Enviando…';
+    fstatus.className = 'fstatus';
     try {
-      const res = await fetch(form.action, {
-        method: 'POST',
-        body: new FormData(form),
-        headers: { Accept: 'application/json' }
-      });
-      if (res.ok) {
-        status.className = 'form-status ok';
-        status.textContent = 'Mensagem enviada. Entraremos em contato em breve.';
+      const r = await fetch(form.action, {method:'POST', body: new FormData(form), headers:{Accept:'application/json'}});
+      if (r.ok) {
+        fstatus.className = 'fstatus ok';
+        fstatus.textContent = 'Mensagem enviada. Entraremos em contato em breve.';
         form.reset();
       } else throw new Error();
     } catch {
-      status.className = 'form-status err';
-      status.textContent = 'Erro ao enviar. Tente novamente ou envie por e-mail.';
+      fstatus.className = 'fstatus err';
+      fstatus.textContent = 'Erro ao enviar. Tente novamente ou envie por e-mail.';
     } finally {
-      btn.disabled = false;
-      btn.textContent = 'Enviar mensagem';
+      sbtn.disabled = false;
+      sbtn.textContent = 'Enviar mensagem';
     }
   });
 }
